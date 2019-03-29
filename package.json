@@ -1,0 +1,19 @@
+{
+  "name": "sabka-bazar-ecommerce-site",
+  "version": "1.0.0",
+  "description": "An ecommerce shopping site where you can buy daily basis products.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tanvirastogi08/shopping-site-coding-exercise.git"
+  },
+  "author": "Tanvi Rastogi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tanvirastogi08/shopping-site-coding-exercise/issues"
+  },
+  "homepage": "https://github.com/tanvirastogi08/shopping-site-coding-exercise#readme"
+}
