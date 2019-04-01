@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/tanvirastogi08/shopping-site-coding-exercise/issues"
   },
-  "homepage": "https://github.com/tanvirastogi08/shopping-site-coding-exercise#readme"
+  "homepage": "https://github.com/tanvirastogi08/shopping-site-coding-exercise#readme",
+  "dependencies": {
+    "flexboxgrid": "^6.3.1",
+    "jquery": "^3.3.1"
+  },
+  "devDependencies": {
+    "node-sass": "^4.11.0"
+  }
 }

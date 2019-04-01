@@ -1,1 +1,58 @@
-        
+/* site theme color: #D20058 */
+//@import all the sub files
+
+@import './src/app/home/home.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #ffffff;
+    color: #eeeeee;
+    font-family: 'Dosis', 'Arial', 'sans-serif';
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.row {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+header {
+    height: 38vh;
+    border-bottom: 1px solid grey;
+}
+
+.header-bar {
+    margin: 5px auto;
+}
+
+.logo {
+    height: 100%;
+    width: auto;
+    margin-top: 20px;
+}
+
+.navbar,
+.actions {
+    list-style: none;
+}
+
+.navbar li,
+.actions li {
+    display: inline-block;
+}
+
+.actions {
+    position: absolute;
+    float: right;
+}
+
+.cart-icon {
+    height: 30px;
+    width: auto;
+}
