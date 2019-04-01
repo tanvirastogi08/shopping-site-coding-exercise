@@ -4,7 +4,7 @@
   "description": "An ecommerce shopping site where you can buy daily basis products.",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build-css": "./node_modules/.bin/node-sass -w style.scss shared/css/style.css"
   },
   "repository": {
     "type": "git",

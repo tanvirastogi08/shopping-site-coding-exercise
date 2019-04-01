@@ -1,0 +1,15 @@
+.content-container {
+  display: flex;
+  margin: 0 8rem;
+}
+
+.sidebar {
+  background-color: $color-grey-dark;
+  // flex: flexGrow flexShrink flexBasis
+  flex: 0 0 18%;
+}
+
+.home {
+  flex: 1;
+  background-color: yellowgreen;
+}

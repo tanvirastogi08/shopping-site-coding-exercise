@@ -5,37 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sabka Bazar</title>
+    <base href="/">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis:400,600,700">
-    <link type="text/css" rel="stylesheet" href="/style.css">
+    <link type="text/css" rel="stylesheet" href="./shared/css/style.css">
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+   
+    <script src="src/app/register/register.js"></script>
+    <script src="src/app/login/login.js"></script>
+    <script src="src/app/home/home.js"></script>
+    <script src="src/app/products/products.js"></script>
+    <script src="src/app/index.js"></script>
   </head>
   <body>
-    <header>
+    <header class="header">
       <nav class="navigation">
-        <div class="row">
-          <img class="logo" src="./assets/images/logo.png" alt="Sabka Bazar logo">
-          <ul class="navbar">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Products</a></li>
-          </ul>
-          <div class="action-buttons">
-            <a href="#" class="btn-signin">SignIn</a>
-            <a href="#" class="btn-register">Register</a>
-          </div>
-          <div class="cart">
-            <img class="cart-icon" src="assets/images/cart.svg">
-            <span>0 items</span>
-          </div>
+        <img src="./assets/images/logo.png" alt="Sabka Bazar logo" class="logo">
+        <ul class="navbar">
+          <li><a href="#" onclick="onNavItemClick('home')">Home</a></li>
+          <li><a href="#" onclick="onNavItemClick('products')">Products</a></li>
+        </ul>
+        <div class="action-buttons">
+          <a href="#" class="btn-signin" onclick="onNavItemClick('signin')">SignIn</a>
+          <a href="#" class="btn-register" onclick="onNavItemClick('register')">Register</a>
+        </div>
+        <div class="cart">
+          <img class="cart-icon" src="assets/images/cart.svg">
+          <span class="items-in-cart">0 items</span>
         </div>
       </nav>
     </header>
-    <section id="content">
-      Content Content Content Content Content Content
-      Content ContentContent ContentContent ContentContent Content
-      Content ContentContent ContentContent ContentContent ContentContent Content
-      Content ContentContent ContentContent ContentContent ContentContent Content
-      Content ContentContent ContentContent ContentContent Content
-      Content ContentContent ContentContent ContentContent
-    </section>
+    <main>
+      <section id="content"></section>
+    </main>
     <footer>
       <div class="row">
         <span>Copyright @ 2011-2019 Sabka Bazar Grocery Supplies Pvt Ltd</span>
