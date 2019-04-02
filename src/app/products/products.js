@@ -34,7 +34,7 @@ var products =
         <li>
           <h4>Fresh Kiwi-Green,3 pcs</h4>
           <figure class="product-photo">
-            <img src="../../../assets/images/products/fruit-n-veg/kiwi-green.jpg" alt="Simple italian pizza with cherry tomatoes">
+            <img src="images/products/fruit-n-veg/kiwi-green.jpg" alt="Simple italian pizza with cherry tomatoes">
           </figure>
           <p>Kiwis are oval shaped with a brownish outer skin. The flesh is bright green and juicy with tiny, edible black seeds.</p>
           <div class="mrp-buy-wrapper">
@@ -45,7 +45,7 @@ var products =
         <li>
           <h4>Fresh Kiwi-Green,3 pcs</h4>
           <figure class="product-photo">
-            <img src="../../../assets/images/products/fruit-n-veg/kiwi-green.jpg" alt="Simple italian pizza with cherry tomatoes">
+            <img src="images/products/fruit-n-veg/kiwi-green.jpg" alt="Simple italian pizza with cherry tomatoes">
           </figure>
           <p>Kiwis are oval shaped with a brownish outer skin. The flesh is bright green and juicy with tiny, edible black seeds.</p>
           <div class="mrp-buy-wrapper">
@@ -56,7 +56,7 @@ var products =
         <li>
           <h4>Fresh Kiwi-Green,3 pcs</h4>
           <figure class="product-photo">
-            <img src="../../../assets/images/products/fruit-n-veg/kiwi-green.jpg" alt="Simple italian pizza with cherry tomatoes">
+            <img src="images/products/fruit-n-veg/kiwi-green.jpg" alt="Simple italian pizza with cherry tomatoes">
           </figure>
           <p>Kiwis are oval shaped with a brownish outer skin. The flesh is bright green and juicy with tiny, edible black seeds.</p>
           <div class="mrp-buy-wrapper">
@@ -67,7 +67,7 @@ var products =
         <li>
           <h4>Fresh Kiwi-Green,3 pcs</h4>
           <figure class="product-photo">
-            <img src="../../../assets/images/products/fruit-n-veg/kiwi-green.jpg" alt="Simple italian pizza with cherry tomatoes">
+            <img src="images/products/fruit-n-veg/kiwi-green.jpg" alt="Simple italian pizza with cherry tomatoes">
           </figure>
           <p>Kiwis are oval shaped with a brownish outer skin. The flesh is bright green and juicy with tiny, edible black seeds.</p>
           <div class="mrp-buy-wrapper">
@@ -78,7 +78,7 @@ var products =
         <li>
           <h4>Fresh Kiwi-Green,3 pcs</h4>
           <figure class="product-photo">
-            <img src="../../../assets/images/products/fruit-n-veg/kiwi-green.jpg" alt="Simple italian pizza with cherry tomatoes">
+            <img src="images/products/fruit-n-veg/kiwi-green.jpg" alt="Simple italian pizza with cherry tomatoes">
           </figure>
           <p>Kiwis are oval shaped with a brownish outer skin. The flesh is bright green and juicy with tiny, edible black seeds.</p>
           <div class="mrp-buy-wrapper">
