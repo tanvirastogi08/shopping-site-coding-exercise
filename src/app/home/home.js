@@ -45,7 +45,7 @@ var home = `
       <span class="dot" onclick="currentSlide(4)"></span> 
       <span class="dot" onclick="currentSlide(5)"></span> 
     </div>
-    <section class="products-showcase">
+    <section class="products-section">
       <ul class="products-listing">
         <li>
           <div class="products-category">
