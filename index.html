@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sabka Bazar</title>
-    <base href="/">
+    <!-- <base href="/"> -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis:400,600,700">
     <link type="text/css" rel="stylesheet" href="./shared/css/style.css">
     <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
    
-    <script src="src/app/register/register.js"></script>
+    <script src="src/app/signup/signup.js"></script>
     <script src="src/app/login/login.js"></script>
     <script src="src/app/home/home.js"></script>
     <script src="src/app/products/products.js"></script>
@@ -19,14 +19,14 @@
   <body>
     <header class="header">
       <nav class="navigation">
-        <img src="./assets/images/logo.png" alt="Sabka Bazar logo" class="logo">
+        <img src="./assets/images/logo.png" alt="Sabka Bazar logo" class="logo" onclick="onNavItemClick('home')">
         <ul class="navbar">
           <li><a href="#" onclick="onNavItemClick('home')">Home</a></li>
           <li><a href="#" onclick="onNavItemClick('products')">Products</a></li>
         </ul>
         <div class="action-buttons">
           <a href="#" class="btn-signin" onclick="onNavItemClick('signin')">SignIn</a>
-          <a href="#" class="btn-register" onclick="onNavItemClick('register')">Register</a>
+          <a href="#" class="btn-register" onclick="onNavItemClick('signup')">Register</a>
         </div>
         <div class="cart">
           <img class="cart-icon" src="assets/images/cart.svg">

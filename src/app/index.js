@@ -1,46 +1,46 @@
-// $(document).ready(function() {
-//     content.innerHTML = routes['home'];
-//     var slideIndex = 1;
-//     this.showSlides(slideIndex);
-// });
-var slideIndex;
+var slideIndex, slides, dots;
 window.onload = function() {
+
+  slides = document.getElementsByClassName("mySlides");
+  dots = document.getElementsByClassName("dot");
+
   content.innerHTML = routes['home'];
-  slideIndex = 1;
-  this.showSlides(slideIndex);
+  this.slideIndex = 1;
+  this.showSlides(this.slideIndex);
 }
 
 function showSlides(n) {
   var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = slides.length}
+  if (n > slides.length) { this.slideIndex = 1; }    
+  if (n < 1) {this.slideIndex = slides.length}
   for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";  
+    slides[i].style.display = "none";  
   }
   for (i = 0; i < dots.length; i++) {
       dots[i].className = dots[i].className.replace(" active", "");
   }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
+  slides[this.slideIndex-1].style.display = "block";  
+  dots[this.slideIndex-1].className += " active";
 }
 
 var routes = {
-    'register': register,
+    'signup': signup,
     'signin': login,
     'home': home,
     'products': products
 }
 
 function onNavItemClick(section) {
-    content.innerHTML = routes[section];
+  content.innerHTML = routes[section];
+  if(section === 'home') {
+    this.slideIndex = 1;
+    this.showSlides(this.slideIndex);
+  }
 }
 
+/**============= Login Input =================== */
 (function ($) {
     "use strict";
-
-    debugger;
     /*==================================================================
     [ Focus input ]*/
     $('.input100').each(function(){
@@ -58,18 +58,12 @@ function onNavItemClick(section) {
     $('.btn-show-pass').on('click', function(){
         if(showPass == 0) {
             $(this).next('input').attr('type','text');
-            $(this).find('i').removeClass('zmdi-eye');
-            $(this).find('i').addClass('zmdi-eye-off');
             showPass = 1;
         }
         else {
             $(this).next('input').attr('type','password');
-            $(this).find('i').addClass('zmdi-eye');
-            $(this).find('i').removeClass('zmdi-eye-off');
             showPass = 0;
         }
-        
     });
-
 
 })(jQuery);

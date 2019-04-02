@@ -9,11 +9,11 @@ input:focus {
   border-color: transparent !important;
 }
 
-.login-container {
+.signup-container {
   display: flex;
   justify-content: space-around;
   margin: 6rem 12rem;
-  .login-text-box > * {
+  .signup-text-box > * {
     margin-bottom: 1rem;
   }
 }
@@ -21,7 +21,7 @@ input:focus {
 /*------------------------------------------------------------------
 [ Form ]*/
   
-.login-form {
+.signup-form {
   width: 50%;
 }
 
@@ -115,7 +115,7 @@ input:focus {
   width: 100%;
 }
 
-.btn-login {
+.btn-signup {
   background-color: $color-theme;
   display: inline-block;
   padding: 0.62rem;
