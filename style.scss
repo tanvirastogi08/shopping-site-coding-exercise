@@ -2,6 +2,7 @@
 //@import all the sub files
 @import './shared/variables.scss';
 @import './src/app/home/home.scss';
+@import './src/app/products/products.scss';
 @import './src/app/login/login.scss';
 @import './src/app/signup/signup.scss';
 
@@ -34,7 +35,7 @@ header {
   position: relative;
   height: 5rem;
   align-items: center;
-  margin: auto 8rem;
+  margin: auto 6rem;
   a { text-decoration: none; }
   .navbar {
     display: flex;

@@ -128,6 +128,71 @@ img {
       margin: 0.5rem 0;
       font-size: 75%; }
 
+.content-container {
+  display: flex;
+  margin: 0 6rem; }
+
+.sidebar {
+  background-color: #eee; }
+  .sidebar .side-nav {
+    font-size: 80%;
+    list-style: none; }
+    .sidebar .side-nav .side-nav-item {
+      columns: #777;
+      border-bottom: 1px solid #777; }
+    .sidebar .side-nav .side-nav-link:link,
+    .sidebar .side-nav .side-nav-link:visited {
+      padding: 10px 20px;
+      text-decoration: none;
+      color: #777;
+      display: block; }
+    .sidebar .side-nav .side-nav-link:hover,
+    .sidebar .side-nav .side-nav-link:active {
+      width: 100%;
+      color: #ffffff;
+      background-color: #777; }
+
+.products-container {
+  flex: 1;
+  height: 80rem; }
+  .products-container .products-showcase {
+    display: flex;
+    flex-wrap: wrap;
+    flex-shrink: 10%;
+    list-style: none;
+    width: 100%; }
+    .products-container .products-showcase li {
+      width: 25%;
+      padding: 20px;
+      padding-bottom: 10px;
+      box-shadow: 0px 8px 6px #eee; }
+    .products-container .products-showcase p {
+      font-size: 80%;
+      padding: 5px;
+      background-color: #eee; }
+    .products-container .products-showcase .product-photo {
+      display: flex;
+      justify-content: center; }
+    .products-container .products-showcase img {
+      width: 70%;
+      height: 100%; }
+    .products-container .products-showcase .mrp-buy-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 75%;
+      padding-top: 10px; }
+      .products-container .products-showcase .mrp-buy-wrapper .btn-buy-now {
+        background-color: #bf2957;
+        display: inline-block;
+        padding: 0.5rem;
+        font-weight: 200;
+        text-decoration: none;
+        color: #fff;
+        font-size: 80%;
+        text-align: center;
+        width: 50%; }
+
 input {
   outline: none;
   border: none; }
@@ -363,7 +428,7 @@ header {
   position: relative;
   height: 5rem;
   align-items: center;
-  margin: auto 8rem; }
+  margin: auto 6rem; }
   .navigation a {
     text-decoration: none; }
   .navigation .navbar {
