@@ -4,31 +4,31 @@ var home = `
 
     <div class="mySlides fade">
       <div class="numbertext">1 / 3</div>
-      <img src="../../../assets/images/offers/offer1.jpg" style="width:100%">
+      <img src="images/offers/offer1.jpg" style="width:100%">
       <div class="text">Caption Text</div>
     </div>
 
     <div class="mySlides fade">
       <div class="numbertext">2 / 3</div>
-      <img src="../../../assets/images/offers/offer2.jpg" style="width:100%">
+      <img src="images/offers/offer2.jpg" style="width:100%">
       <div class="text">Caption Two</div>
     </div>
 
     <div class="mySlides fade">
       <div class="numbertext">3 / 3</div>
-      <img src="../../../assets/images/offers/offer3.jpg" style="width:100%">
+      <img src="images/offers/offer3.jpg" style="width:100%">
       <div class="text">Caption Three</div>
     </div>
 
     <div class="mySlides fade">
       <div class="numbertext">3 / 3</div>
-      <img src="../../../assets/images/offers/offer4.jpg" style="width:100%">
+      <img src="images/offers/offer4.jpg" style="width:100%">
       <div class="text">Caption Three</div>
     </div>
 
     <div class="mySlides fade">
       <div class="numbertext">3 / 3</div>
-      <img src="../../../assets/images/offers/offer5.jpg" style="width:100%">
+      <img src="images/offers/offer5.jpg" style="width:100%">
       <div class="text">Caption Three</div>
     </div>
 
@@ -50,7 +50,7 @@ var home = `
         <li>
           <div class="products-category">
             <figure class="category">
-              <img src="../../../assets/images/category/fruits.png" alt="Korean bibimbap with egg and vegetables">
+              <img src="images/category/fruits.png" alt="Korean bibimbap with egg and vegetables">
             </figure>
             <div class="product-detail">
               <h5>Fruits & Vegetables</h5>
@@ -67,14 +67,14 @@ var home = `
               <a class="btn-explore-category" href="#">Explore-bakes-cakes-dairy</a>
             </div>
             <figure class="category">
-              <img src="../../../assets/images/category/bakery.png" alt="Simple italian pizza with cherry tomatoes">
+              <img src="images/category/bakery.png" alt="Simple italian pizza with cherry tomatoes">
             </figure>
           </div>
         </li>
         <li>
           <div class="products-category">
             <figure class="category">
-              <img src="../../../assets/images/category/beverages.png" alt="Chicken breast steak with vegetables ">
+              <img src="images/category/beverages.png" alt="Chicken breast steak with vegetables ">
             </figure>
             <div class="product-detail">
               <h5>Beverages</h5>
@@ -91,14 +91,14 @@ var home = `
               <a class="btn-explore-category" href="#">Explore beauty-hygiene</a>
             </div>
             <figure class="category">
-              <img src="../../../assets/images/category/beauty.png" alt="Autumn pumpkin soup">
+              <img src="images/category/beauty.png" alt="Autumn pumpkin soup">
             </figure>
           </div>
         </li>
         <li>
           <div class="products-category">
             <figure class="category">
-              <img src="../../../assets/images/category/baby.png" alt="Autumn pumpkin soup">
+              <img src="images/category/baby.png" alt="Autumn pumpkin soup">
             </figure>
             <div class="product-detail">
               <h5>Baby Care</h5>
