@@ -1,16 +1,5 @@
-
-console.log('pages',window, this);
 var slideIndex, slides, dots;
-var routes = {
-    'signup': signup,
-    'signin': login,
-    'home': home,
-    'products': products
-}
-console.log('in main.js', this);
-
 window.onload = function() {
-
   this.slides = document.getElementsByClassName("mySlides");
   this.dots = document.getElementsByClassName("dot");
 
@@ -19,6 +8,7 @@ window.onload = function() {
   this.showSlides(this.slideIndex);
 }
 
+/**============= Slider show functionality on home page =================== */
 function showSlides(n) {
   var i;
   if (n > slides.length) { this.slideIndex = 1; }    
@@ -27,10 +17,18 @@ function showSlides(n) {
     slides[i].style.display = "none";  
   }
   for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
+    dots[i].className = dots[i].className.replace(" active", "");
   }
   slides[this.slideIndex-1].style.display = "block";  
   dots[this.slideIndex-1].className += " active";
+}
+
+/**============= Handling page change on navigation click keeping header/footer fixed =================== */
+var routes = {
+  'signup': signup,
+  'signin': login,
+  'home': home,
+  'products': products
 }
 
 function onNavItemClick(section) {
@@ -41,32 +39,28 @@ function onNavItemClick(section) {
   }
 }
 
-/**============= Login Input =================== */
-(function ($) {
-    "use strict";
-    /*==================================================================
-    [ Focus input ]*/
-    $('.input100').each(function(){
-        $(this).on('blur', function(){
-            if($(this).val().trim() != "") {
-                $(this).addClass('has-val');
-            }
-            else {
-                $(this).removeClass('has-val');
-            }
-        })    
-    });
+/**============================== Login Input Focus ================================= */
+$(document).ready(function() {
+  $('.input100').each(function(){
+    $(this).on('blur', function(){
+      if($(this).val().trim() != "") {
+        $(this).addClass('has-val');
+      }
+      else {
+        $(this).removeClass('has-val');
+      }
+    })    
+  });
 
-    var showPass = 0;
-    $('.btn-show-pass').on('click', function(){
-        if(showPass == 0) {
-            $(this).next('input').attr('type','text');
-            showPass = 1;
-        }
-        else {
-            $(this).next('input').attr('type','password');
-            showPass = 0;
-        }
-    });
-
-})(jQuery);
+  var showPass = 0;
+  $('.btn-show-pass').on('click', function(){
+    if(showPass == 0) {
+      $(this).next('input').attr('type','text');
+      showPass = 1;
+    }
+    else {
+      $(this).next('input').attr('type','password');
+      showPass = 0;
+    }
+  });
+});

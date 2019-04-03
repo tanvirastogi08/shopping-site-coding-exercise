@@ -1,3 +1,4 @@
+/**============= Require all the scss and js files =================== */
 require('../../style.scss');
 require('./home/home');
 require('./login/login');
