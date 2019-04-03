@@ -18,11 +18,6 @@ html {
   font-weight: 300;
 }
 
-.container {
-  max-width: 114rem;
-  margin: 0 auto;
-}
-
 /****** Header *****/
 
 header {
@@ -55,7 +50,7 @@ header {
 
       li { font-size: 85%; }
 
-      li:first-child { padding-right: 1.5rem }
+      li:first-child { margin-right: 2rem }
       li:first-child,
       li:last-child
       {
