@@ -50,7 +50,7 @@ module.exports = {
   }
 };
 
-
+// PS: For my own knowledge
 /* In webpack there are 4 core concepts:
 * 1. Entry Point
 * 2. output (path to where to save the bundle file)
