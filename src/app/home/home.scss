@@ -123,3 +123,9 @@ img {vertical-align: middle;}
     }
   }
 }
+
+.category-list:nth-child(even) {
+  .products-category {
+    flex-direction: row-reverse;
+  }
+}
