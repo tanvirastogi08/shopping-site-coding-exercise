@@ -1,5 +1,6 @@
 
-console.log('pages',window, this);
+// import products from '../config/products/products.json';
+ 
 var slideIndex, slides, dots;
 var routes = {
     'signup': signup,
