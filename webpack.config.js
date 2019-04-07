@@ -13,16 +13,11 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-        filename: 'index.html',
-        template: './index.html'
+      filename: 'index.html',
+      template: './index.html'
     }),
     new CopyWebpackPlugin([
-        { from: './assets/images/', to: 'images' },
-        { from: './src/app/home', to: 'js/home' },
-        { from: './src/app/signup', to: 'js/signup' },
-        { from: './src/app/login', to: 'js/login' },
-        { from: './src/app/products', to: 'js/products'},
-        { from: './src/app', to: 'js'}
+      { from: './assets/images/', to: 'images' }
     ])
   ],
   module: {

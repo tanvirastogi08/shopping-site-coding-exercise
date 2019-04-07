@@ -1,5 +1,5 @@
 /** banner data for dynamic iteration */
-let banners = [
+const banners = [
   {
     "bannerImageUrl": "/images/offers/offer1.jpg",
     "bannerImageAlt": "Independence Day Deal - 25% off on shampoo",
@@ -38,7 +38,7 @@ let banners = [
 ];
 
 /** categories data for dynamic iteration */
-let categories =[  
+export const categories =[  
   {
     "name": "Fruits & Vegetables",
     "key": "fruit-and-veg",
@@ -86,7 +86,7 @@ let categories =[
   }
 ];
 
-let listAllBanners = (banner) => {
+const listAllBanners = (banner) => {
   return `
     <div class="mySlides fade">
       <img src="${banner.bannerImageUrl}" style="width:100%" alt="${banner.bannerImageAlt}">
@@ -94,7 +94,7 @@ let listAllBanners = (banner) => {
   `
 }
 
-let listAllCategories = (category) => {
+const listAllCategories = (category) => {
   return `
     <li class="category-list">
       <div class="products-category">
@@ -111,20 +111,20 @@ let listAllCategories = (category) => {
   `
 }
 
-let home = `
+export const home = `
   <div class="home-container">
     <div class="slideshow-container">
       ${banners.map(banner => listAllBanners(banner)).join('')}
-      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      <a class="prev">&#10094;</a>
+      <a class="next">&#10095;</a>
     </div>
     <br>
     <div style="text-align:center;">
-      <span class="dot" onclick="currentSlide(1)"></span> 
-      <span class="dot" onclick="currentSlide(2)"></span> 
-      <span class="dot" onclick="currentSlide(3)"></span>
-      <span class="dot" onclick="currentSlide(4)"></span> 
-      <span class="dot" onclick="currentSlide(5)"></span> 
+      <span class="dot dotOne" onclick="test()"></span> 
+      <span class="dot dotTwo"></span> 
+      <span class="dot dotThree"></span>
+      <span class="dot dotFour"></span> 
+      <span class="dot dotFive"></span> 
     </div>
     <section class="products-section">
       <ul class="products-listing">
@@ -133,12 +133,3 @@ let home = `
     </section>
   </div>
 `
-
-/** both functions will be used when dots and next, prev button will be clicked */
-function plusSlides(n) {
-  this.showSlides(this.slideIndex += n);
-}
-
-function currentSlide(n) {
-  this.showSlides(this.slideIndex = n);
-}

@@ -13,14 +13,14 @@
   <body>
     <header class="header">
       <nav class="navigation">
-        <img src="images/logo.png" alt="Sabka Bazar logo" class="logo" onclick="onNavItemClick('home')">
+        <img src="images/logo.png" alt="Sabka Bazar logo" class="logo">
         <ul class="navbar">
-          <li><a href="#" onclick="onNavItemClick('home')">Home</a></li>
-          <li><a href="#" onclick="onNavItemClick('products')">Products</a></li>
+          <li><a href="#" class="nav-home">Home</a></li>
+          <li><a href="#" class="nav-product">Products</a></li>
         </ul>
         <div class="action-buttons">
-          <a href="#" class="btn-signin" onclick="onNavItemClick('signin')">SignIn</a>
-          <a href="#" class="btn-register" onclick="onNavItemClick('signup')">Register</a>
+          <a href="#" class="btn-signin">SignIn</a>
+          <a href="#" class="btn-register">Register</a>
         </div>
         <div class="cart">
           <img class="cart-icon" src="images/cart.svg">
@@ -39,13 +39,6 @@
         <span>Copyright @ 2011-2019 Sabka Bazar Grocery Supplies Pvt Ltd</span>
       </div>
     </footer>
-    
-    <!-- ============================== template files dependecies ================================= -->
-    <script src="js/home/home.js"></script>
-    <script src="js/login/login.js"></script>
-    <script src="js/signup/signup.js"></script>
-    <script src="js/products/products.js"></script>
-    <script src="js/main.js"></script>
 
   </body>
 </html>

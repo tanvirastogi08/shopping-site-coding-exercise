@@ -1,4 +1,4 @@
-let signup = 
+export const signup = 
 `<div class="signup-container">
   <div class="signup-text-box">
     <h3>Signup</h3>

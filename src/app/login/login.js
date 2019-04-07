@@ -1,4 +1,4 @@
-let login = `
+export const login = `
   <div class="login-container">
     <div class="login-text-box">
       <h3>Login</h3>

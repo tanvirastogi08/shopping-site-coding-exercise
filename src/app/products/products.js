@@ -1,5 +1,7 @@
+import { categories } from '../home/home';
+
 /** products data for dynamic iteration */
-let allProducts = [
+const allProducts = [
   {
     "name": "Fresho Kiwi - Green, 3 pcs",
     "imageURL": "images/products/fruit-n-veg/kiwi-green.jpg",
@@ -252,7 +254,7 @@ let allProducts = [
   }
 ]
 
-let listAllProducts = (product) => {
+const listAllProducts = (product) => {
   return `
     <li>
       <h5>${product.name}</h5>
@@ -268,7 +270,7 @@ let listAllProducts = (product) => {
   `
 }
 
-let listAllProductsInSideNav = (category) => {
+const listAllProductsInSideNav = (category) => {
   return `
     <li class="side-nav-item">
     <a class="side-nav-link" href="">
@@ -277,7 +279,7 @@ let listAllProductsInSideNav = (category) => {
   `
 }
 
-let products =
+export const products =
   `<div class="content-container">
     <nav class="sidebar">
       <ul class="side-nav">
