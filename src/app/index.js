@@ -15,71 +15,35 @@ const routes = {
   'products': products
 }
 
-const elements = {  
-  btnSignin: document.getElementsByClassName("btn-signin"),
-  btnRegister: document.getElementsByClassName("btn-register"),
-  navHome: document.getElementsByClassName("nav-home"),
-  navProduct: document.getElementsByClassName("nav-product"),
-  sliderPrev: document.getElementsByClassName("prev"),
-  sliderNext: document.getElementsByClassName("next"),
-  dotOne: document.getElementsByClassName('dotOne'),
-  dotTwo: document.getElementsByClassName('dotTwo'),
-  dotThree: document.getElementsByClassName('dotThree'),
-  dotFour: document.getElementsByClassName('dotFour'),
-  dotFive: document.getElementsByClassName('dotFive')
-}
+$(document).ready(function() {
+  slides = document.getElementsByClassName('mySlides');
+  dots = document.getElementsByClassName('dot');
 
-window.onload = function() {
-  slides = document.getElementsByClassName("mySlides");
-  dots = document.getElementsByClassName("dot");
-
+  // appending content section with home view(by default)
   content.innerHTML = routes['home'];
+
   slideIndex = 1;
   showSlides(slideIndex);
-  
-  // TODO: need some guidance for onclick method to call from template literal
-  elements.sliderPrev[0].addEventListener('click', function() {
-    plusSlide(-1);
+
+  onInitSlider();
+
+  /**================== Navigation buttons ============================ */
+
+  $('.nav-home').on('click', function() {
+    onNavItemClick('home');
+    onInitSlider();
   });
 
-  elements.sliderNext[0].addEventListener('click', function() {
-    plusSlide(1)
+  $('.nav-product').on('click', function() {
+    onNavItemClick('products');
   });
 
-  elements.dotOne[0].addEventListener('click', function() {
-    currentSlide(1);
-  });
-
-  elements.dotTwo[0].addEventListener('click', function() {
-    currentSlide(2);
-  });
-  
-  elements.dotThree[0].addEventListener('click', function() {
-    currentSlide(3);
-  });
-  
-  elements.dotFour[0].addEventListener('click', function() {
-    currentSlide(4);
-  });
-  
-  elements.dotFive[0].addEventListener('click', function() {
-    currentSlide(5);
-  });
-
-  elements.btnSignin[0].addEventListener('click', function() {
+  $('.btn-signin').on('click', function() {
     onNavItemClick('signin');
   });
 
-  elements.btnRegister[0].addEventListener('click', function() {
-    onNavItemClick('signup')
-  });
-
-  elements.navHome[0].addEventListener('click', function() {
-    onNavItemClick('home')
-  });
-
-  elements.navProduct[0].addEventListener('click', function() {
-    onNavItemClick('products')
+  $('.btn-register').on('click', function() {
+    onNavItemClick('signup');
   });
 
   /**================== Login/Signup focus ============================ */
@@ -104,6 +68,40 @@ window.onload = function() {
       $(this).next('input').attr('type','password');
       showPass = 0;
     }
+  });
+
+});
+
+
+function onInitSlider() {
+  // prev and next slider button
+  $('.prev').on('click', function() {
+    plusSlide(-1);
+  });
+
+  $('.next').on('click', function() {
+    plusSlide(1);
+  });
+
+  // slider dots button
+  $('.dotOne').on('click', function() {
+    currentSlide(1);
+  });
+
+  $('.dotTwo').on('click', function() {
+    currentSlide(2);
+  });
+
+  $('.dotThree').on('click', function() {
+    currentSlide(3);
+  });
+
+  $('.dotFour').on('click', function() {
+    currentSlide(4);
+  });
+
+  $('.dotFive').on('click', function() {
+    currentSlide(5);
   });
 }
 

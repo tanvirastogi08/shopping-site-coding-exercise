@@ -1,4 +1,4 @@
-[
+export const allProducts = [
   {
     "name": "Fresho Kiwi - Green, 3 pcs",
     "imageURL": "images/products/fruit-n-veg/kiwi-green.jpg",
@@ -249,4 +249,4 @@
     "sku": "baby-wipes-red-80",
     "id": "5b6c761801a7c3842953089b"
   }
-]
+];
