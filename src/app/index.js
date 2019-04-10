@@ -16,7 +16,7 @@ const routes = {
 }
 
 $(document).ready(function() {
-  slides = document.getElementsByClassName('mySlides');
+  slides = document.getElementsByClassName('bannerSlides');
   dots = document.getElementsByClassName('dot');
 
   // appending content section with home view(by default)
@@ -70,6 +70,7 @@ $(document).ready(function() {
     }
   });
 
+  
 });
 
 

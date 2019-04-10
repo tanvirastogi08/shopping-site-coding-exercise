@@ -3,7 +3,7 @@ import { categories } from '../../config/categories';
 
 const listAllBanners = (banner) => {
   return `
-    <div class="mySlides fade">
+    <div class="bannerSlides fade">
       <img src="${banner.bannerImageUrl}" style="width:100%" alt="${banner.bannerImageAlt}">
     </div>
   `

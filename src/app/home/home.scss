@@ -3,7 +3,7 @@
   margin-top: 2rem;
 }
 
-.mySlides {display: none}
+.bannerSlides {display: none}
 
 img {vertical-align: middle;}
 
@@ -102,6 +102,10 @@ img {vertical-align: middle;}
     box-shadow: 0 2px 2px $color-grey-light; 
     .category img{
       height: 10rem;
+
+      @media only screen and (max-width: 480px) {
+        height: 5rem;
+      }
     }
   }
 

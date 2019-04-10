@@ -24,8 +24,18 @@
         </div>
         <div class="cart">
           <img class="cart-icon" src="images/cart.svg">
-          <span class="items-in-cart">0 items</span>
+          <span class="items-in-cart">0</span>
+          <span class="right-nav" onclick="onDrawerIconClick()">&#9776;</span>
         </div>
+      </nav>
+      <nav>
+        <ul class="drawer-nav" id="drawer">
+          <li><a href="#" class="cross-icon" onclick="onDrawerCloseIconClick()">&times;</a></li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">SignIn</a></li>
+          <li><a href="#">SignUp</a></li>
+        </ul>
       </nav>
     </header>
   
@@ -39,6 +49,13 @@
         <span>Copyright @ 2011-2019 Sabka Bazar Grocery Supplies Pvt Ltd</span>
       </div>
     </footer>
-
+    <script>
+      function onDrawerIconClick() {
+        document.getElementById('drawer').style.display = "block";
+      }
+      function onDrawerCloseIconClick() {
+        document.getElementById('drawer').style.display = "none";
+      }
+    </script>
   </body>
 </html>
