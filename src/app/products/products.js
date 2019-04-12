@@ -4,11 +4,13 @@ import { allProducts } from '../../config/products';
 const listAllProducts = (product) => {
   return `
     <li>
-      <h5>${product.name}</h5>
-      <figure class="product-photo">
-        <img src="${product.imageURL}" alt="${product.name}">
-      </figure>
-      <p>${product.description}</p>
+      <h4>${product.name}</h4>
+      <div class="product-box">
+        <figure class="product-photo">
+          <img src="${product.imageURL}" alt="${product.name}">
+        </figure>
+        <p>${product.description}</p>
+      </div>
       <div class="mrp-buy-wrapper">
         <span>MRP Rs. ${product.price}</span>
         <a class="btn-buy-now" href="#">Buy Now</a>
@@ -29,6 +31,11 @@ const listAllProductsInSideNav = (category) => {
 export const products =
   `<div class="content-container">
     <nav class="sidebar">
+      <ul class="side-nav">
+        ${categories.map(category => listAllProductsInSideNav(category)).join('')}
+      </ul>
+    </nav>
+    <nav class="topbar">
       <ul class="side-nav">
         ${categories.map(category => listAllProductsInSideNav(category)).join('')}
       </ul>

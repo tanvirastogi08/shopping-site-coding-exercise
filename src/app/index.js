@@ -32,18 +32,22 @@ $(document).ready(function() {
   $('.nav-home').on('click', function() {
     onNavItemClick('home');
     onInitSlider();
+    onDrawerCloseIconClick();
   });
 
   $('.nav-product').on('click', function() {
     onNavItemClick('products');
+    onDrawerCloseIconClick();
   });
 
   $('.btn-signin').on('click', function() {
     onNavItemClick('signin');
+    onDrawerCloseIconClick();
   });
 
   $('.btn-register').on('click', function() {
     onNavItemClick('signup');
+    onDrawerCloseIconClick();
   });
 
   /**================== Login/Signup focus ============================ */

@@ -33,10 +33,6 @@ header {
     align-items: center;
     margin: auto 6rem;
 
-    @media only screen and (max-width: 1024px) {
-      margin: 0;
-    }
-
     @media only screen and (max-width: 480px) {
       height: 4rem;
     }
@@ -135,7 +131,7 @@ header {
       li {
         a {
           text-decoration: none;
-          color: inherit;
+          color: $color-theme;
         }
         .cross-icon {
           font-size: 150%;
@@ -168,10 +164,18 @@ footer {
 }
 
 @media only screen and (max-width: 1024px) {
-  .navbar { flex: 0 0 40%; }
+  header {
+    .navigation {
+      margin: 0;
+      .navbar { flex: 0 0 40%;}
+    }
+  }
   .home-container {
     margin: 0;
     margin-top: 2rem;
+  }
+  .content-container {
+    margin: 0;
   }
   .product-detail {
     margin-left: 15px;
