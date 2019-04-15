@@ -13,20 +13,19 @@ input:focus {
   display: flex;
   justify-content: space-around;
   margin: 6rem 12rem;
+
   .login-text-box > * {
+    flex-basis: 50%;
     margin-bottom: 1rem;
+  }
+
+  .login-form {
+    flex-basis: 50%;
   }
 }
 
 /*------------------------------------------------------------------
 [ Form ]*/
-  
-.login-form {
-  width: 50%;
-}
-
-/*------------------------------------------------------------------
-[ Input ]*/
 
 .wrap-input100 {
   width: 100%;
@@ -116,4 +115,17 @@ input:focus {
   color: #fff;
   font-size: 70%;
   width:100%;
+}
+
+@media only screen and (max-width: 1024px) {
+  .login-container {
+    margin: 4rem 2rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .login-container {
+    flex-direction: column;
+    margin: 4rem 2rem;
+  }
 }
