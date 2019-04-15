@@ -26,6 +26,12 @@ const listAllCategories = (category) => {
   `
 }
 
+const bannerDots = (index) => {
+  return `
+    <span class="dot dot-${index}"></span> 
+  `
+}
+
 export const home = `
   <div class="home-container">
     <div class="slideshow-container">
@@ -35,11 +41,7 @@ export const home = `
     </div>
     <br>
     <div style="text-align:center;">
-      <span class="dot dotOne"></span> 
-      <span class="dot dotTwo"></span> 
-      <span class="dot dotThree"></span>
-      <span class="dot dotFour"></span> 
-      <span class="dot dotFive"></span> 
+      ${banners.map((banner, index) => bannerDots(index+1)).join('')}
     </div>
     <section class="products-section">
       <ul class="products-listing">

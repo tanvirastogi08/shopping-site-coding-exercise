@@ -13,7 +13,7 @@ const listAllProducts = (product) => {
       </div>
       <div class="mrp-buy-wrapper">
         <span>MRP Rs. ${product.price}</span>
-        <a class="btn-buy-now" href="#">Buy Now</a>
+        <a class="btn-buy-now" href="#" data-mrp=" @ MRP Rs. ${product.price}">Buy Now</a>
       </div>
     </li>
   `

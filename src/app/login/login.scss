@@ -67,15 +67,9 @@ input:focus {
   width: 0;
   height: 2px;
 
-  -webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -moz-transition: all 0.4s;
   transition: all 0.4s;
 
   background: $color-login-theme;
-  background: -webkit-linear-gradient(left, $color-login-theme);
-  background: -o-linear-gradient(left, $color-login-theme);
-  background: -moz-linear-gradient(left, $color-login-theme);
   background: linear-gradient(left, $color-login-theme);
 }
   
@@ -92,9 +86,6 @@ input:focus {
   left: 0px;
   padding-left: 5px;
 
-  -webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -moz-transition: all 0.4s;
   transition: all 0.4s;
 }
 

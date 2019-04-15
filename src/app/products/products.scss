@@ -101,6 +101,13 @@
             p { max-height: 100px; }
           }
         }
+        .mrp-buy-wrapper {
+          span { display: none; }
+          .btn-buy-now { width: 100%; }
+          .btn-buy-now::after {
+            content: attr(data-mrp)
+          }
+        }
       }
     }
   }
@@ -124,11 +131,16 @@
       }
     }
     .products-container {
-      .products-showcase {
-        li {
+      .products-showcase li {
           width: 100%;
+        }
+        .mrp-buy-wrapper {
+          span { display: none; }
+          .btn-buy-now { width: 100%; }
+          .btn-buy-now::after {
+            content: attr(data-mrp)
+          }
         }
       }
     }
-  }
 }

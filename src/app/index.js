@@ -89,23 +89,23 @@ function onInitSlider() {
   });
 
   // slider dots button
-  $('.dotOne').on('click', function() {
+  $('.dot-1').on('click', function() {
     currentSlide(1);
   });
 
-  $('.dotTwo').on('click', function() {
+  $('.dot-2').on('click', function() {
     currentSlide(2);
   });
 
-  $('.dotThree').on('click', function() {
+  $('.dot-3').on('click', function() {
     currentSlide(3);
   });
 
-  $('.dotFour').on('click', function() {
+  $('.dot-4').on('click', function() {
     currentSlide(4);
   });
 
-  $('.dotFive').on('click', function() {
+  $('.dot-5').on('click', function() {
     currentSlide(5);
   });
 }
