@@ -95,7 +95,8 @@ header {
         height: 2rem;
         width: 2rem;
       }
-      .items-in-cart { font-size: 80%; }
+      .items-in-cart,
+      .items-text { font-size: 80%; }
       .sidenav { display: none; }
 
       @media only screen and (max-width: 480px) {
@@ -105,6 +106,7 @@ header {
         width: 4rem;
 
         .sidenav { display: block; }
+        .items-text { display: none; }
         .items-in-cart {
           font-size: 0.8rem;
           height: 1rem;

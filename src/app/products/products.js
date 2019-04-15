@@ -21,24 +21,33 @@ const listAllProducts = (product) => {
 
 const listAllProductsInSideNav = (category) => {
   return `
-    <li class="side-nav-item">
-    <a class="side-nav-link" href="">
-      <span>${category.name}</span>
-    </a>
+    <li class="nav-item">
+      <a class="nav-item-link" href="">
+        <span>${category.name}</span>
+      </a>
+    </li>
+  `
+}
+
+const listAllProductsInTopNav = (category) => {
+  return `
+    <option class="nav-item">
+      <span class="nav-item-link">${category.name}</span>
+    </option>
   `
 }
 
 export const products =
   `<div class="content-container">
     <nav class="sidebar">
-      <ul class="side-nav">
+      <ul class="navbar">
         ${categories.map(category => listAllProductsInSideNav(category)).join('')}
       </ul>
     </nav>
     <nav class="topbar">
-      <ul class="side-nav">
-        ${categories.map(category => listAllProductsInSideNav(category)).join('')}
-      </ul>
+      <select class="navbar selected">
+        ${categories.map(category => listAllProductsInTopNav(category)).join('')}
+      </select>
     </nav>
     <main class="products-container">
       <ul class="products-showcase">
