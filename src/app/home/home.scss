@@ -137,7 +137,3 @@ img { vertical-align: middle; }
 .category-list:nth-child(even) {
   flex-direction: row-reverse;
 }
-
-@media only screen and (max-width: 480px) {
-  .prev, .next,.text { font-size: 11px }
-}

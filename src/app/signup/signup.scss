@@ -117,15 +117,15 @@ input:focus {
   width:100%;
 }
 
-@media only screen and (max-width: 1024px) {
-  .signup-container {
-    margin: 4rem 2rem;
-  }
-}
+// @media only screen and (max-width: 1024px) {
+//   .signup-container {
+//     margin: 4rem 2rem;
+//   }
+// }
 
-@media only screen and (max-width: 480px) {
-  .signup-container {
-    flex-direction: column;
-    margin: 4rem 2rem;
-  }
-}
+// @media only screen and (max-width: 480px) {
+//   .signup-container {
+//     flex-direction: column;
+//     margin: 4rem 2rem;
+//   }
+// }

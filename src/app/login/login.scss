@@ -116,16 +116,3 @@ input:focus {
   font-size: 70%;
   width:100%;
 }
-
-@media only screen and (max-width: 1024px) {
-  .login-container {
-    margin: 4rem 2rem;
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  .login-container {
-    flex-direction: column;
-    margin: 4rem 2rem;
-  }
-}
