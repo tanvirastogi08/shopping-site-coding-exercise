@@ -38,7 +38,7 @@ const listAllProductsInTopNav = (category) => {
 }
 
 export const products =
-  `<div class="content-container">
+  `<div class="products-container">
     <nav class="sidebar">
       <ul class="navbar">
         ${categories.map(category => listAllProductsInSideNav(category)).join('')}
@@ -49,10 +49,8 @@ export const products =
         ${categories.map(category => listAllProductsInTopNav(category)).join('')}
       </select>
     </nav>
-    <main class="products-container">
-      <ul class="products-showcase">
-        ${allProducts.map(product => listAllProducts(product)).join('')}
-      </ul>
-    </main>
+    <ul class="products-showcase">
+      ${allProducts.map(product => listAllProducts(product)).join('')}
+    </ul>
   </div>
 `
