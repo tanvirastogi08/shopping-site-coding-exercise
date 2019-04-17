@@ -4,6 +4,7 @@ import { home } from '../app/home/home';
 import { products } from '../app/products/products';
 import { login } from '../app/login/login';
 import { signup } from '../app/signup/signup';
+import { cart } from './cart/cart';
 
 let slideIndex, slides, dots;
 
@@ -12,7 +13,8 @@ const routes = {
   'signup': signup,
   'signin': login,
   'home': home,
-  'products': products
+  'products': products,
+  'cart': cart
 }
 
 $(document).ready(function() {
@@ -47,6 +49,11 @@ $(document).ready(function() {
 
   $('.btn-register').on('click', function() {
     onNavItemClick('signup');
+    onDrawerCloseIconClick();
+  });
+
+  $('.cart-icon').on('click', function() {
+    onNavItemClick('cart');
     onDrawerCloseIconClick();
   });
 
