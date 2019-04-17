@@ -11,38 +11,39 @@
     <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   </head>
   <body>
-    <header class="header">
+    <header>
       <nav class="navigation">
         <img src="images/logo.png" alt="Sabka Bazar logo" class="logo">
-        <ul class="navbar">
-          <li><a href="#" class="nav-home">Home</a></li>
-          <li><a href="#" class="nav-product">Products</a></li>
-        </ul>
+        <div class="navbar">
+          <a href="#" class="nav-home">Home</a>
+          <a href="#" class="nav-product">Products</a>
+        </div>
         <div class="action-buttons">
           <a href="#" class="btn-signin">SignIn</a>
           <a href="#" class="btn-register">Register</a>
         </div>
         <div class="cart">
-          <img class="cart-icon" src="images/cart.svg">
-          <span class="items-in-cart">0</span>
+          <a href="#">
+            <img class="cart-icon" src="images/cart.svg">
+            <span class="items-in-cart">0</span>
+            <span class="items-text">&nbsp;items</span>
+          </a>
           <span class="right-nav" onclick="onDrawerIconClick()">&#9776;</span>
         </div>
       </nav>
       <nav>
-        <ul class="drawer-nav" id="drawer">
-          <li><a href="#" class="cross-icon" onclick="onDrawerCloseIconClick()">&times;</a></li>
-          <li><a href="#" class="nav-home">Home</a></li>
-          <li><a href="#" class="nav-product">Products</a></li>
-          <li><a href="#" class="btn-signin">SignIn</a></li>
-          <li><a href="#" class="btn-register">SignUp</a></li>
-        </ul>
+        <div class="drawer-nav" id="drawer">
+          <a href="#" class="cross-icon" onclick="onDrawerCloseIconClick()">&times;</a>
+          <a href="#" class="nav-home">Home</a>
+          <a href="#" class="nav-product">Products</a>
+          <a href="#" class="btn-signin">SignIn</a>
+          <a href="#" class="btn-register">SignUp</a>
+        </div>
       </nav>
     </header>
   
     <!-- Dynamic Content will be added -->
-    <main>
-      <section id="content"></section>
-    </main>
+    <main id="content"></main>
   
     <footer>
       <div class="row">
@@ -51,7 +52,9 @@
     </footer>
     <script>
       function onDrawerIconClick() {
-        document.getElementById('drawer').style.display = "block";
+        let drawerIcon = document.getElementById('drawer');
+        drawerIcon.style.display = "flex";
+        drawerIcon.style.flexDirection = "column";
       }
       function onDrawerCloseIconClick() {
         document.getElementById('drawer').style.display = "none";
