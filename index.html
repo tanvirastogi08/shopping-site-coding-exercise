@@ -4,44 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
     <title>Sabka Bazar</title>
-    <!-- <base href="/"> -->
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis:400,600,700">
     <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   </head>
   <body>
-    <header class="header">
+    <header>
       <nav class="navigation">
-        <img src="images/logo.png" alt="Sabka Bazar logo" class="logo" onclick="onNavItemClick('home')">
-        <ul class="navbar">
-          <li><a href="#" onclick="onNavItemClick('home')">Home</a></li>
-          <li><a href="#" onclick="onNavItemClick('products')">Products</a></li>
-        </ul>
+        <img src="images/logo.png" alt="Sabka Bazar logo" class="logo">
+        <div class="navbar">
+          <a href="#" class="nav-home">Home</a>
+          <a href="#" class="nav-product">Products</a>
+        </div>
         <div class="action-buttons">
-          <a href="#" class="btn-signin" onclick="onNavItemClick('signin')">SignIn</a>
-          <a href="#" class="btn-register" onclick="onNavItemClick('signup')">Register</a>
+          <a href="#" class="btn-signin">SignIn</a>
+          <a href="#" class="btn-register">Register</a>
         </div>
         <div class="cart">
-          <img class="cart-icon" src="images/cart.svg">
-          <span class="items-in-cart">0 items</span>
+          <a href="#">
+            <img class="cart-icon" src="images/cart.svg">
+            <span class="items-in-cart">0</span>
+            <span class="items-text">&nbsp;items</span>
+          </a>
+          <span class="right-nav" onclick="onDrawerIconClick()">&#9776;</span>
+        </div>
+      </nav>
+      <nav>
+        <div class="drawer-nav" id="drawer">
+          <a href="#" class="cross-icon" onclick="onDrawerCloseIconClick()">&times;</a>
+          <a href="#" class="nav-home">Home</a>
+          <a href="#" class="nav-product">Products</a>
+          <a href="#" class="btn-signin">SignIn</a>
+          <a href="#" class="btn-register">SignUp</a>
         </div>
       </nav>
     </header>
-    <main>
-      <section id="content">
-      </section>
-    </main>
+  
+    <!-- Dynamic Content will be added -->
+    <main id="content"></main>
+  
     <footer>
       <div class="row">
         <span>Copyright @ 2011-2019 Sabka Bazar Grocery Supplies Pvt Ltd</span>
       </div>
     </footer>
-    
-    <script src="js/home/home.js"></script>
-    <script src="js/login/login.js"></script>
-    <script src="js/signup/signup.js"></script>
-    <script src="js/products/products.js"></script>
-    <script src="js/main.js"></script>
-
+    <script>
+      function onDrawerIconClick() {
+        let drawerIcon = document.getElementById('drawer');
+        drawerIcon.style.display = "flex";
+        drawerIcon.style.flexDirection = "column";
+      }
+      function onDrawerCloseIconClick() {
+        document.getElementById('drawer').style.display = "none";
+      }
+    </script>
   </body>
 </html>

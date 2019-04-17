@@ -1,92 +1,56 @@
-var products =
-  `<div class="content-container">
+import { categories } from '../../config/categories';
+import { allProducts } from '../../config/products';
+
+const listAllProducts = (product) => {
+  return `
+    <li>
+      <h4>${product.name}</h4>
+      <div class="product-box">
+        <figure class="product-photo">
+          <img src="${product.imageURL}" alt="${product.name}">
+        </figure>
+        <p>${product.description}</p>
+      </div>
+      <div class="mrp-buy-wrapper">
+        <span>MRP Rs. ${product.price}</span>
+        <a class="btn-buy-now" href="#" data-mrp=" @ MRP Rs. ${product.price}">Buy Now</a>
+      </div>
+    </li>
+  `
+}
+
+const listAllProductsInSideNav = (category) => {
+  return `
+    <li class="nav-item">
+      <a class="nav-item-link" href="">
+        <span>${category.name}</span>
+      </a>
+    </li>
+  `
+}
+
+const listAllProductsInTopNav = (category) => {
+  return `
+    <option class="nav-item">
+      <span class="nav-item-link">${category.name}</span>
+    </option>
+  `
+}
+
+export const products =
+  `<div class="products-container">
     <nav class="sidebar">
-      <ul class="side-nav">
-        <li class="side-nav-item">
-        <a class="side-nav-link" href="">
-          <span>Fruits and Vegetables</span>
-        </a>
-        </li>
-        <li class="side-nav-item">
-        <a class="side-nav-link" href="">
-          <span>Bakery Cakes and Dairy</span>
-        </a>
-        </li>
-        <li class="side-nav-item">
-        <a class="side-nav-link" href="">
-          <span>Beverages</span>
-        </a>
-        </li>
-        <li class="side-nav-item">
-        <a class="side-nav-link" href="">
-          <span>Beauty and Hygiene</span>
-        </a>
-        </li>
-        <li class="side-nav-item">
-        <a class="side-nav-link" href="">
-          <span>Baby Care</span>
-        </a>
-        </li>
+      <ul class="navbar">
+        ${categories.map(category => listAllProductsInSideNav(category)).join('')}
       </ul>
     </nav>
-    <main class="products-container">
-      <ul class="products-showcase">
-        <li>
-          <h4>Fresh Kiwi-Green,3 pcs</h4>
-          <figure class="product-photo">
-            <img src="images/products/fruit-n-veg/kiwi-green.jpg" alt="Simple italian pizza with cherry tomatoes">
-          </figure>
-          <p>Kiwis are oval shaped with a brownish outer skin. The flesh is bright green and juicy with tiny, edible black seeds.</p>
-          <div class="mrp-buy-wrapper">
-            <span>MRP Rs. 87</span>
-            <a class="btn-buy-now" href="#">Buy Now</a>
-          </div>
-        </li>
-        <li>
-          <h4>Fresh Kiwi-Green,3 pcs</h4>
-          <figure class="product-photo">
-            <img src="images/products/fruit-n-veg/kiwi-green.jpg" alt="Simple italian pizza with cherry tomatoes">
-          </figure>
-          <p>Kiwis are oval shaped with a brownish outer skin. The flesh is bright green and juicy with tiny, edible black seeds.</p>
-          <div class="mrp-buy-wrapper">
-            <span>MRP Rs. 87</span>
-            <a class="btn-buy-now" href="#">Buy Now</a>
-          </div>
-        </li>
-        <li>
-          <h4>Fresh Kiwi-Green,3 pcs</h4>
-          <figure class="product-photo">
-            <img src="images/products/fruit-n-veg/kiwi-green.jpg" alt="Simple italian pizza with cherry tomatoes">
-          </figure>
-          <p>Kiwis are oval shaped with a brownish outer skin. The flesh is bright green and juicy with tiny, edible black seeds.</p>
-          <div class="mrp-buy-wrapper">
-            <span>MRP Rs. 87</span>
-            <a class="btn-buy-now" href="#">Buy Now</a>
-          </div>
-        </li>
-        <li>
-          <h4>Fresh Kiwi-Green,3 pcs</h4>
-          <figure class="product-photo">
-            <img src="images/products/fruit-n-veg/kiwi-green.jpg" alt="Simple italian pizza with cherry tomatoes">
-          </figure>
-          <p>Kiwis are oval shaped with a brownish outer skin. The flesh is bright green and juicy with tiny, edible black seeds.</p>
-          <div class="mrp-buy-wrapper">
-            <span>MRP Rs. 87</span>
-            <a class="btn-buy-now" href="#">Buy Now</a>
-          </div>
-        </li>
-        <li>
-          <h4>Fresh Kiwi-Green,3 pcs</h4>
-          <figure class="product-photo">
-            <img src="images/products/fruit-n-veg/kiwi-green.jpg" alt="Simple italian pizza with cherry tomatoes">
-          </figure>
-          <p>Kiwis are oval shaped with a brownish outer skin. The flesh is bright green and juicy with tiny, edible black seeds.</p>
-          <div class="mrp-buy-wrapper">
-            <span>MRP Rs. 87</span>
-            <a class="btn-buy-now" href="#">Buy Now</a>
-          </div>
-        </li>
-      </ul>
-    </main>
+    <nav class="topbar">
+      <select class="navbar selected">
+        ${categories.map(category => listAllProductsInTopNav(category)).join('')}
+      </select>
+    </nav>
+    <ul class="products-showcase">
+      ${allProducts.map(product => listAllProducts(product)).join('')}
+    </ul>
   </div>
 `

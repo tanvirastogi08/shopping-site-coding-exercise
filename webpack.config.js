@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: ['@babel/polyfill', './src/app/index.js'],
@@ -13,16 +13,11 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-        filename: 'index.html',
-        template: './index.html'
+      filename: 'index.html',
+      template: './index.html'
     }),
     new CopyWebpackPlugin([
-        { from: './assets/images/', to: 'images' },
-        { from: './src/app/home', to: 'js/home' },
-        { from: './src/app/signup', to: 'js/signup' },
-        { from: './src/app/login', to: 'js/login' },
-        { from: './src/app/products', to: 'js/products'},
-        { from: './src/app', to: 'js'}
+      { from: './assets/images/', to: 'images' }
     ])
   ],
   module: {
@@ -54,7 +49,7 @@ module.exports = {
   }
 };
 
-
+// PS: For my own knowledge
 /* In webpack there are 4 core concepts:
 * 1. Entry Point
 * 2. output (path to where to save the bundle file)

@@ -1,26 +1,26 @@
-.content-container {
+.products-container {
   display: flex;
   margin: 0 6rem;
 }
 
 .sidebar {
   background-color: $color-grey-light;
-  .side-nav {
+  .navbar {
     font-size: 80%;
     list-style: none;
-    .side-nav-item {
+    .nav-item {
       columns: $color-grey-dark;
       border-bottom: 1px solid $color-grey-dark;
     }
-    .side-nav-link:link,
-    .side-nav-link:visited {
+    .nav-item-link:link,
+    .nav-item-link:visited {
       padding: 10px 20px;
       text-decoration: none;
       color: $color-grey-dark;
       display: block;
     }
-    .side-nav-link:hover,
-    .side-nav-link:active {
+    .nav-item-link:hover,
+    .nav-item-link:active {
       width: 100%;
       color: #ffffff;
       background-color: $color-grey-dark;
@@ -28,51 +28,57 @@
   }
 }
 
-.products-container {
-  flex: 1;
-  height: 80rem;
-  .products-showcase {
-    display: flex;
-    flex-wrap: wrap;
-    flex-shrink: 10%;
-    list-style: none;
-    width: 100%;
-    li {
-      width: 25%;
-      padding: 20px;
-      padding-bottom: 10px;
-      box-shadow: 0px 8px 6px $color-grey-light;
-    }
-    p {
-      font-size: 80%;
-      padding: 5px;
-      background-color: $color-grey-light;
-   }
-    .product-photo {
-      display: flex;
-      justify-content: center;
-    }
+.topbar { display: none; }
+
+.products-showcase {
+  display: flex;
+  flex-wrap: wrap;
+  flex-shrink: 10%;
+  list-style: none;
+  width: 100%;
+  li {
+    width: 25%;
+    padding: 20px;
+    padding-bottom: 10px;
+    box-shadow: 0px 8px 6px $color-grey-light;
+  }
+  h4 {
+    min-height: 80px;
+    margin-top: 10px;
+  }
+  p {
+    max-height: 90px;
+    font-size: 80%;
+    padding: 5px;
+    overflow: hidden;
+    background-color: $color-grey-light;
+  }
+
+  .product-photo {
+    margin-bottom: 10px;
+    margin-right: 10px;
     img {
-      width: 70%;
-      height: 100%;
+      max-width: 100%;
     }
-    .mrp-buy-wrapper {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 75%;
-      padding-top: 10px;
-      .btn-buy-now {
-        background-color: $color-theme;
-        display: inline-block;
-        padding: 0.5rem;
-        font-weight: 200;
-        text-decoration: none;
-        color: #fff;
-        font-size: 80%;
-        text-align: center;
-        width: 50%;
-      }
+  }
+
+  .mrp-buy-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 75%;
+    padding-top: 10px;
+
+    .btn-buy-now {
+      background-color: $color-theme;
+      display: inline-block;
+      padding: 0.5rem;
+      font-weight: 200;
+      text-decoration: none;
+      color: #fff;
+      font-size: 80%;
+      text-align: center;
+      width: 50%;
     }
   }
 }
