@@ -17,7 +17,8 @@ module.exports = {
       template: './index.html'
     }),
     new CopyWebpackPlugin([
-      { from: './assets/images/', to: 'images' }
+      { from: './assets/images/', to: 'images' },
+      { from: './src/config/', to: 'data' }
     ])
   ],
   module: {
@@ -43,7 +44,13 @@ module.exports = {
       },
       {
         test: /\.hbs$/,
-        loader: 'handlebars-loader'
+        use: [{
+          loader: "handlebars-loader",
+        }]
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
       }
     ]
   }

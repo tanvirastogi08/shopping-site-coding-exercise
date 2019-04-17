@@ -5,6 +5,8 @@ import { products } from '../app/products/products';
 import { login } from '../app/login/login';
 import { signup } from '../app/signup/signup';
 
+let myTemplate = require('./myHandlebar.hbs');
+
 let slideIndex, slides, dots;
 
 /**============= Handling page change on navigation click keeping header/footer fixed =================== */
@@ -139,4 +141,26 @@ function onNavItemClick(section) {
     slideIndex = 1;
     showSlides(slideIndex);
   }
+}
+
+var ourRequest = new XMLHttpRequest();
+ourRequest.open('GET', 'data/products/products.json');
+ourRequest.onload = function() {
+  if (ourRequest.status >= 200 && ourRequest.status < 400) {
+    var data = JSON.parse(ourRequest.responseText);
+    console.log('products data', data);
+    createHTML(data);
+  } else {
+    console.log("We connected to the server, but it returned an error.");
+  }
+};
+
+ourRequest.onerror = function() {
+  console.log("Connection error");
+};
+
+ourRequest.send();
+
+function createHTML(products) {
+  content.innerHTML = myTemplate(products);
 }
