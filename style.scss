@@ -11,8 +11,8 @@
 }
 
 html {
-  background-color: #ffffff;
-  color: black;
+  background-color: $color-white;
+  color: $color-black;
   font-family: 'Dosis', 'Arial', 'sans-serif';
   font-size: 20px;
   font-weight: 300;
@@ -22,7 +22,7 @@ html {
 
 header {
   box-shadow: 0px 8px 6px $color-grey-light;
-  color: $color-font;
+  color: $color-black;
   font-weight: 600;
 
   .navigation {
@@ -181,7 +181,7 @@ footer {
         text-decoration: none;
         color: $color-theme;
         text-align: center;
-        border-bottom: 1px solid #787677;
+        border-bottom: 1px solid $color-grey;
         padding: 10px 0;
         font-size: 70%;
         background-color: $color-grey-light;
@@ -216,23 +216,23 @@ footer {
         font-family: inherit;
         padding: 10px;
         .nav-item {
-          background-color: #fff;
-          color: #000;
+          background-color: $color-white;
+          color: $color-black;
         }
       }
       .navbar.selected {
         background-color: $color-theme;
-        color: #fff;
+        color: $color-black;
       }
       .nav-item-link:link,
       .nav-item-link:visited {
-        background-color: #fff;
+        background-color: $color-white;
         color: $color-theme;
       }
       .nav-item-link:hover,
       .nav-item-link:active {
         background-color: $color-theme;
-        color: #fff;
+        color: $color-white;
       }
     }
 
