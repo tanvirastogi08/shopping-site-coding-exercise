@@ -1,50 +1,36 @@
-import { banners } from '../../config/banners';
-import { categories } from '../../config/categories';
+export const home = require('./home.hbs');
 
-const listAllBanners = (banner) => {
-  return `
-    <div class="bannerSlides fade">
-      <img src="${banner.bannerImageUrl}" style="width:100%" alt="${banner.bannerImageAlt}">
-    </div>
-  `
-}
+  let request = new XMLHttpRequest();
+  request.open('GET', 'data/banners/banners.json');
+  request.onload = function() {
+    if (request.status >= 200 && request.status < 400) {
+      banners = JSON.parse(request.responseText);
+    } else {
+      console.log("We connected to the server, but it returned an error.");
+    }
+  };
+  
+  request.onerror = function() {
+    console.log("Connection error");
+  };
+  
+  request.send();
 
-const listAllCategories = (category) => {
-  return `
-    <li class="category-list">
-      <div class="product-category">
-        <img src="${category.imageUrl}" alt="${category.key}">
-      </div>
-      <div class="product-detail">
-        <h5>${category.name}</h5>
-        <p>${category.description}</p>
-        <a class="btn-explore-category" href="#">Explore-${category.key}</a>
-      </div>
-    </li>
-  `
-}
+  let categoriesRequest = new XMLHttpRequest();
+  categoriesRequest.open('GET', 'data/categories/categories.json');
+  categoriesRequest.onload = function() {
+    if (categoriesRequest.status >= 200 && request.status < 400) {
+      categories = JSON.parse(categoriesRequest.responseText);
+    } else {
+      console.log("We connected to the server, but it returned an error.");
+    }
+  };
+  
+  categoriesRequest.onerror = function() {
+    console.log("Connection error");
+  };
+  
+  categoriesRequest.send();
 
-const bannerDots = (index) => {
-  return `
-    <span class="dot dot-${index}"></span> 
-  `
-}
-
-export const home = `
-  <section class="home-container">
-    <div class="slideshow-container">
-      ${banners.map(banner => listAllBanners(banner)).join('')}
-      <a class="prev">&#10094;</a>
-      <a class="next">&#10095;</a>
-      <br>
-      <div style="text-align:center;">
-        ${banners.map((banner, index) => bannerDots(index+1)).join('')}
-      </div>
-    </div>
-    <div class="products-section">
-      <ul class="products-listing">
-        ${categories.map(category => listAllCategories(category)).join('')}
-      </ul>
-    </div>
-  </section>
-`
+export let banners;
+export let categories;

@@ -1,0 +1,33 @@
+  <section class="home-container">
+    <div class="slideshow-container">
+        {{#each banners.banners}}
+        <div class="bannerSlides fade">
+                <img src="{{bannerImageUrl}}" style="width:100%" alt="{{bannerImageAlt}}">
+        </div>
+        {{/each}}
+      <a class="prev">&#10094;</a>
+      <a class="next">&#10095;</a>
+      <br>
+      <div style="text-align:center;">
+        {{#each categories.categories}}
+        <span class="dot dot-{{@index}}"></span>
+        {{/each}}
+      </div>
+    </div>
+    <div class="products-section">
+      <ul class="products-listing">
+            {{#each categories.categories}}
+            <li class="category-list">
+                <div class="product-category">
+                    <img src="{{imageUrl}}" alt="{{key}}">
+                </div>
+                <div class="product-detail">
+                    <h5>{{name}}</h5>
+                    <p>{{description}}</p>
+                    <a class="btn-explore-category" href="#">Explore-{{key}}</a>
+                </div>
+            </li>
+            {{/each}}
+      </ul>
+    </div>
+  </section>

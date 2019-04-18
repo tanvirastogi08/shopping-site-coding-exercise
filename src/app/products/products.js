@@ -1,56 +1,19 @@
-import { categories } from '../../config/categories';
-import { allProducts } from '../../config/products';
+export const products = require('./products.hbs');
 
-const listAllProducts = (product) => {
-  return `
-    <li>
-      <h4>${product.name}</h4>
-      <div class="product-box">
-        <figure class="product-photo">
-          <img src="${product.imageURL}" alt="${product.name}">
-        </figure>
-        <p>${product.description}</p>
-      </div>
-      <div class="mrp-buy-wrapper">
-        <span>MRP Rs. ${product.price}</span>
-        <a class="btn-buy-now" href="#" data-mrp=" @ MRP Rs. ${product.price}">Buy Now</a>
-      </div>
-    </li>
-  `
-}
+let request = new XMLHttpRequest();
+  request.open('GET', 'data/products/products.json');
+  request.onload = function() {
+    if (request.status >= 200 && request.status < 400) {
+      productList = JSON.parse(request.responseText);
+    } else {
+      console.log("We connected to the server, but it returned an error.");
+    }
+  };
+  
+  request.onerror = function() {
+    console.log("Connection error");
+  };
+  
+  request.send();
 
-const listAllProductsInSideNav = (category) => {
-  return `
-    <li class="nav-item">
-      <a class="nav-item-link" href="">
-        <span>${category.name}</span>
-      </a>
-    </li>
-  `
-}
-
-const listAllProductsInTopNav = (category) => {
-  return `
-    <option class="nav-item">
-      <span class="nav-item-link">${category.name}</span>
-    </option>
-  `
-}
-
-export const products =
-  `<div class="products-container">
-    <nav class="sidebar">
-      <ul class="navbar">
-        ${categories.map(category => listAllProductsInSideNav(category)).join('')}
-      </ul>
-    </nav>
-    <nav class="topbar">
-      <select class="navbar selected">
-        ${categories.map(category => listAllProductsInTopNav(category)).join('')}
-      </select>
-    </nav>
-    <ul class="products-showcase">
-      ${allProducts.map(product => listAllProducts(product)).join('')}
-    </ul>
-  </div>
-`
+export let productList;

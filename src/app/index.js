@@ -1,11 +1,9 @@
 /**============= Require all the scss and js files =================== */
 import '../../style.scss';
-import { home } from '../app/home/home';
-import { products } from '../app/products/products';
+import { home, banners, categories } from '../app/home/home';
+import { products, productList } from '../app/products/products';
 import { login } from '../app/login/login';
 import { signup } from '../app/signup/signup';
-
-let myTemplate = require('./myHandlebar.hbs');
 
 let slideIndex, slides, dots;
 
@@ -18,27 +16,32 @@ const routes = {
 }
 
 $(document).ready(function() {
+
+  let data = {
+    banners, categories
+  }
   slides = document.getElementsByClassName('bannerSlides');
   dots = document.getElementsByClassName('dot');
 
   // appending content section with home view(by default)
-  content.innerHTML = routes['home'];
-
-  slideIndex = 1;
-  showSlides(slideIndex);
-
-  onInitSlider();
+  onNavItemClick('home', data);
 
   /**================== Navigation buttons ============================ */
 
   $('.nav-home').on('click', function() {
-    onNavItemClick('home');
+    data = {
+      banners, categories
+    }
+    onNavItemClick('home', data);
     onInitSlider();
     onDrawerCloseIconClick();
   });
 
   $('.nav-product').on('click', function() {
-    onNavItemClick('products');
+    data = {
+      productList, categories
+    }
+    onNavItemClick('products', data);
     onDrawerCloseIconClick();
   });
 
@@ -75,10 +78,37 @@ $(document).ready(function() {
       showPass = 0;
     }
   });
-
   
 });
 
+function onNavItemClick(section, data) {
+  createHTML(section, data);
+
+  if(section === 'home') {
+    slideIndex = 1;
+    showSlides(slideIndex);
+    onInitSlider();
+  }
+}
+
+function createHTML(section, data) {
+  content.innerHTML =  routes[section](data);
+}
+
+/**============= Slider show functionality on home page =================== */
+function showSlides(n) {
+  let i;
+  if (n > slides.length) { slideIndex = 1; }    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
 
 function onInitSlider() {
   // prev and next slider button
@@ -112,55 +142,10 @@ function onInitSlider() {
   });
 }
 
-/**============= Slider show functionality on home page =================== */
-function showSlides(n) {
-  let i;
-  if (n > slides.length) { slideIndex = 1; }    
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
-}
-
-function plusSlide(n) {
-  showSlides(slideIndex += n);
-}
-
 function currentSlide(n) {
   showSlides(slideIndex = n);
 }
 
-function onNavItemClick(section) {
-  content.innerHTML = routes[section];
-  if(section === 'home') {
-    slideIndex = 1;
-    showSlides(slideIndex);
-  }
-}
-
-var ourRequest = new XMLHttpRequest();
-ourRequest.open('GET', 'data/products/products.json');
-ourRequest.onload = function() {
-  if (ourRequest.status >= 200 && ourRequest.status < 400) {
-    var data = JSON.parse(ourRequest.responseText);
-    console.log('products data', data);
-    createHTML(data);
-  } else {
-    console.log("We connected to the server, but it returned an error.");
-  }
-};
-
-ourRequest.onerror = function() {
-  console.log("Connection error");
-};
-
-ourRequest.send();
-
-function createHTML(products) {
-  content.innerHTML = myTemplate(products);
+function plusSlide(n) {
+  showSlides(slideIndex += n);
 }
