@@ -1,9 +1,12 @@
 /**============= Require all the scss and js files =================== */
 import '../../style.scss';
-import { home, banners, categories } from '../app/home/home';
-import { products, productList } from '../app/products/products';
+import { makeRequest } from '../config/services/sabkabazar.service';
+import { home } from '../app/home/home';
+import { products } from '../app/products/products';
 import { login } from '../app/login/login';
 import { signup } from '../app/signup/signup';
+
+const WINDOW_CONFIG = window['SABKABAZAR_CONFIG'];
 
 let slideIndex, slides, dots;
 
@@ -17,32 +20,61 @@ const routes = {
 
 $(document).ready(function() {
 
-  let data = {
-    banners, categories
-  }
-  slides = document.getElementsByClassName('bannerSlides');
-  dots = document.getElementsByClassName('dot');
+  let banners, categories, handlebarsData;
 
-  // appending content section with home view(by default)
-  onNavItemClick('home', data);
+  // fetch banners and then categories
+  makeRequest(`${WINDOW_CONFIG.apiUrl}/mock-data/banners/banners.json`, 'GET')
+    .then(function(bannersData) {
+
+      makeRequest(`${WINDOW_CONFIG.apiUrl}/mock-data/categories/categories.json`, 'GET')
+        .then(function(categoriesData) {
+
+          banners = bannersData;
+          categories = categoriesData;
+          
+          slides = document.getElementsByClassName('bannerSlides');
+          dots = document.getElementsByClassName('dot');
+        
+          // creating data for handlebars
+          handlebarsData = {
+            banners, categories
+          }
+
+          // appending content section with home view(by default)
+          onNavItemClick('home', handlebarsData);
+        })
+        .catch(function (error) {
+          console.log('Something went wrong in categories', error);
+        });
+    })
+    .catch(function (error) {
+      console.log('Something went wrong in banners', error);
+    });
 
   /**================== Navigation buttons ============================ */
 
   $('.nav-home').on('click', function() {
-    data = {
+    handlebarsData = {
       banners, categories
     }
-    onNavItemClick('home', data);
+    onNavItemClick('home', handlebarsData);
     onInitSlider();
     onDrawerCloseIconClick();
   });
 
   $('.nav-product').on('click', function() {
-    data = {
-      productList, categories
-    }
-    onNavItemClick('products', data);
-    onDrawerCloseIconClick();
+    makeRequest(`${WINDOW_CONFIG.apiUrl}/mock-data/products/products.json`, 'GET')
+      .then(function(products) {
+
+        handlebarsData = {
+          products, categories
+        }
+        onNavItemClick('products', handlebarsData);
+        onDrawerCloseIconClick();
+      })
+      .catch(function(error) {
+        console.log('Something went wrong in products', error);
+      })
   });
 
   $('.btn-signin').on('click', function() {
@@ -91,6 +123,7 @@ function onNavItemClick(section, data) {
   }
 }
 
+// appending the dynamic html to the main element
 function createHTML(section, data) {
   content.innerHTML =  routes[section](data);
 }

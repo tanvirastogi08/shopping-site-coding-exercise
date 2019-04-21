@@ -60,5 +60,13 @@
         document.getElementById('drawer').style.display = "none";
       }
     </script>
+
+    <!-- Keeping constants on global window -->
+    <script>
+      // https://github.com/auth0/auth0.js/issues/753
+      window.global = window;
+    </script>
+    <script src='data/config.js'></script>
+
   </body>
 </html>
