@@ -2,13 +2,13 @@
 import '../../style.scss';
 import { makeRequest } from '../app/core/services/sabkabazar.service';
 import { home } from '../app/home/home';
-import { products } from '../app/products/products';
+import { products, onClickCategory } from '../app/products/products';
 import { login } from '../app/login/login';
 import { signup } from '../app/signup/signup';
 
 const WINDOW_CONFIG = window['SABKABAZAR_CONFIG'];
 
-let slideIndex, slides, dots;
+let slideIndex, slides, dots, banners;
 
 /**============= Handling page change on navigation click keeping header/footer fixed =================== */
 const routes = {
@@ -20,7 +20,7 @@ const routes = {
 
 $(document).ready(function() {
 
-  let banners, categories, handlebarsData;
+  let categories, handlebarsData;
 
   // fetch banners and then categories
   makeRequest(`${WINDOW_CONFIG.apiUrl}/mock-data/banners/banners.json`, 'GET')
@@ -65,12 +65,10 @@ $(document).ready(function() {
   $('.nav-product').on('click', function() {
     makeRequest(`${WINDOW_CONFIG.apiUrl}/mock-data/products/products.json`, 'GET')
       .then(function(products) {
-
         handlebarsData = {
           products, categories
         }
-        onNavItemClick('products', handlebarsData);
-        onDrawerCloseIconClick();
+        onClickProductOrCategory('products', handlebarsData, products);
       })
       .catch(function(error) {
         console.error('Something went wrong in products', error);
@@ -153,26 +151,12 @@ function onInitSlider() {
     plusSlide(1);
   });
 
-  // slider dots button
-  $('.dot-1').on('click', function() {
-    currentSlide(1);
-  });
-
-  $('.dot-2').on('click', function() {
-    currentSlide(2);
-  });
-
-  $('.dot-3').on('click', function() {
-    currentSlide(3);
-  });
-
-  $('.dot-4').on('click', function() {
-    currentSlide(4);
-  });
-
-  $('.dot-5').on('click', function() {
-    currentSlide(5);
-  });
+  const bannerList = banners.banners;
+  bannerList.forEach(function(banner, index) {
+    $(`.dot-${index}`).on('click', function() {
+      currentSlide(index);
+    });
+  })
 }
 
 function currentSlide(n) {
@@ -181,4 +165,27 @@ function currentSlide(n) {
 
 function plusSlide(n) {
   showSlides(slideIndex += n);
+}
+
+function onInitCategories(categories, productList) {
+  const allCategories = categories.categories;
+  const allProducts = productList;
+
+  allCategories.forEach((category, index) =>  {
+    $(`.item-${index}`).on('click', function(el) {
+      const selectedCategory = allCategories.filter(item => item.name === el.target.innerText)
+      let products = onClickCategory(selectedCategory[0].id, productList.allProducts);
+      products.allProducts = products;
+      const handlebarsData = {
+        products, categories
+      }
+      onClickProductOrCategory('products', handlebarsData, allProducts)
+    });
+  });
+}
+
+function onClickProductOrCategory(selector, handlebarsData, allProducts) {
+  onNavItemClick(selector, handlebarsData);
+  onInitCategories(handlebarsData.categories, allProducts);
+  onDrawerCloseIconClick();
 }
