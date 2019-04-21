@@ -44,11 +44,11 @@ $(document).ready(function() {
           onNavItemClick('home', handlebarsData);
         })
         .catch(function (error) {
-          console.log('Something went wrong in categories', error);
+          console.error('Something went wrong in categories', error);
         });
     })
     .catch(function (error) {
-      console.log('Something went wrong in banners', error);
+      console.error('Something went wrong in banners', error);
     });
 
   /**================== Navigation buttons ============================ */
@@ -73,7 +73,7 @@ $(document).ready(function() {
         onDrawerCloseIconClick();
       })
       .catch(function(error) {
-        console.log('Something went wrong in products', error);
+        console.error('Something went wrong in products', error);
       })
   });
 
