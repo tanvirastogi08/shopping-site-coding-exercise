@@ -1,6 +1,6 @@
 /**============= Require all the scss and js files =================== */
 import '../../style.scss';
-import { makeRequest } from '../config/services/sabkabazar.service';
+import { makeRequest } from '../app/core/services/sabkabazar.service';
 import { home } from '../app/home/home';
 import { products } from '../app/products/products';
 import { login } from '../app/login/login';

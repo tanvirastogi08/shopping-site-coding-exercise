@@ -18,7 +18,7 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
       { from: './assets/images/', to: 'images' },
-      { from: './src/config/', to: 'data' }
+      { from: './config/', to: 'data' }
     ])
   ],
   module: {
