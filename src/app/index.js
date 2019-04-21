@@ -8,7 +8,7 @@ import { signup } from '../app/signup/signup';
 
 const WINDOW_CONFIG = window['SABKABAZAR_CONFIG'];
 
-let slideIndex, slides, dots, banners;
+let slideIndex, slides, dots, banners, categories, productList;
 
 /**============= Handling page change on navigation click keeping header/footer fixed =================== */
 const routes = {
@@ -20,7 +20,7 @@ const routes = {
 
 $(document).ready(function() {
 
-  let categories, handlebarsData;
+  let handlebarsData;
 
   // fetch banners and then categories
   makeRequest(`${WINDOW_CONFIG.apiUrl}/mock-data/banners/banners.json`, 'GET')
@@ -65,10 +65,14 @@ $(document).ready(function() {
   $('.nav-product').on('click', function() {
     makeRequest(`${WINDOW_CONFIG.apiUrl}/mock-data/products/products.json`, 'GET')
       .then(function(products) {
+
+        productList = products;
+
         handlebarsData = {
           products, categories
         }
-        onClickProductOrCategory('products', handlebarsData, products);
+
+        onClickProductOrCategory('products', handlebarsData);
       })
       .catch(function(error) {
         console.error('Something went wrong in products', error);
@@ -167,25 +171,38 @@ function plusSlide(n) {
   showSlides(slideIndex += n);
 }
 
-function onInitCategories(categories, productList) {
-  const allCategories = categories.categories;
-  const allProducts = productList;
+function onInitCategories(categories) {
 
+  const allCategories = categories.categories;
+
+  // on mobile screen select is visible
+  $('select').on('change', function() {
+    onCategorySelection(this.value);
+  });
+
+  // on tablet and desktop screen
   allCategories.forEach((category, index) =>  {
     $(`.item-${index}`).on('click', function(el) {
-      const selectedCategory = allCategories.filter(item => item.name === el.target.innerText)
-      let products = onClickCategory(selectedCategory[0].id, productList.allProducts);
-      products.allProducts = products;
-      const handlebarsData = {
-        products, categories
-      }
-      onClickProductOrCategory('products', handlebarsData, allProducts)
+      onCategorySelection(el.target.innerText);
     });
   });
 }
 
-function onClickProductOrCategory(selector, handlebarsData, allProducts) {
+function onCategorySelection(selectedCategory) {
+  const allCategories = categories.categories;
+  const selectedCategoryDetail = allCategories.filter(item => item.name === selectedCategory);
+
+  let products = onClickCategory(selectedCategoryDetail[0].id, productList.allProducts);
+  products.allProducts = products;
+
+  const handlebarsData = {
+    products, categories
+  }
+  onClickProductOrCategory('products', handlebarsData)
+}
+
+function onClickProductOrCategory(selector, handlebarsData) {
   onNavItemClick(selector, handlebarsData);
-  onInitCategories(handlebarsData.categories, allProducts);
+  onInitCategories(handlebarsData.categories);
   onDrawerCloseIconClick();
 }
