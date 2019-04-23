@@ -27,12 +27,13 @@ $(document).ready(function() {
   header.innerHTML = headerTemplate();
   footer.innerHTML = footerTemplate();
 
-  // fetch banners and then categories
+  // fetch banners
   const promiseBanner = makeRequest(
     `${WINDOW_CONFIG.apiUrl}/mock-data/banners/banners.json`,
     'GET'
   );
-
+  
+  // fetching categories
   const promiseCategory = makeRequest(
     `${WINDOW_CONFIG.apiUrl}/mock-data/categories/categories.json`,
     'GET'
@@ -71,20 +72,24 @@ $(document).ready(function() {
   });
 
   $('.nav-product').on('click', function() {
-    makeRequest(`${WINDOW_CONFIG.apiUrl}/mock-data/products/products.json`, 'GET')
-      .then(function(products) {
+    // fetching products
+    makeRequest(
+      `${WINDOW_CONFIG.apiUrl}/mock-data/products/products.json`,
+      'GET'
+    )
+    .then(function(products) {
 
-        productList = products;
+      productList = products;
 
-        handlebarsData = {
-          products, categories
-        }
+      handlebarsData = {
+        products, categories
+      }
 
-        onClickProductOrCategory('products', handlebarsData);
-      })
-      .catch(function(error) {
-        console.error('Something went wrong in products', error);
-      })
+      onClickProductOrCategory('products', handlebarsData);
+    })
+    .catch(function(error) {
+      console.error('Something went wrong in products', error);
+    })
   });
 
   $('.btn-signin').on('click', function() {

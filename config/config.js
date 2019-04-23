@@ -1,3 +1,3 @@
 window.SABKABAZAR_CONFIG = {
-    apiUrl: 'http://localhost:8080/data'
+  apiUrl: 'http://localhost:8080/constants'
 }
