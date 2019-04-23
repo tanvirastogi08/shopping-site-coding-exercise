@@ -1,0 +1,1 @@
+export const footerTemplate = require('./footer.hbs');

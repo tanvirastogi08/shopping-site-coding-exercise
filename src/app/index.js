@@ -1,6 +1,8 @@
 /**============= Require all the scss and js files =================== */
 import '../../style.scss';
 import { makeRequest } from '../app/core/services/sabkabazar.service';
+import { headerTemplate, onDrawerIconClick, onDrawerCloseIconClick } from '../../shared/header/header';
+import { footerTemplate } from '../../shared/footer/footer';
 import { home } from '../app/home/home';
 import { products, onClickCategory } from '../app/products/products';
 import { login } from '../app/login/login';
@@ -22,30 +24,36 @@ $(document).ready(function() {
 
   let handlebarsData;
 
+  header.innerHTML = headerTemplate();
+  footer.innerHTML = footerTemplate();
+
   // fetch banners and then categories
-  makeRequest(`${WINDOW_CONFIG.apiUrl}/mock-data/banners/banners.json`, 'GET')
-    .then(function(bannersData) {
+  const promiseBanner = makeRequest(
+    `${WINDOW_CONFIG.apiUrl}/mock-data/banners/banners.json`,
+    'GET'
+  );
 
-      makeRequest(`${WINDOW_CONFIG.apiUrl}/mock-data/categories/categories.json`, 'GET')
-        .then(function(categoriesData) {
+  const promiseCategory = makeRequest(
+    `${WINDOW_CONFIG.apiUrl}/mock-data/categories/categories.json`,
+    'GET'
+  );
 
-          banners = bannersData;
-          categories = categoriesData;
-          
-          slides = document.getElementsByClassName('bannerSlides');
-          dots = document.getElementsByClassName('dot');
-        
-          // creating data for handlebars
-          handlebarsData = {
-            banners, categories
-          }
+  Promise.all([promiseBanner, promiseCategory])
+    .then(function(result) {
 
-          // appending content section with home view(by default)
-          onNavItemClick('home', handlebarsData);
-        })
-        .catch(function (error) {
-          console.error('Something went wrong in categories', error);
-        });
+      banners = result[0];
+      categories = result[1];
+      
+      slides = document.getElementsByClassName('bannerSlides');
+      dots = document.getElementsByClassName('dot');
+    
+      // creating data for handlebars
+      handlebarsData = {
+        banners, categories
+      }
+
+      // appending content section with home view(by default)
+      onNavItemClick('home', handlebarsData);
     })
     .catch(function (error) {
       console.error('Something went wrong in banners', error);
@@ -111,6 +119,10 @@ $(document).ready(function() {
       $(this).next('input').attr('type','password');
       showPass = 0;
     }
+  });
+
+  $('.btn-hamburger').on('click', function() {
+    onDrawerIconClick();
   });
   
 });
