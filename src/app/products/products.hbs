@@ -22,12 +22,12 @@
   <ul class="products-showcase">
     {{#each products.allProducts}}
     <li>
-      <h4>{{name}}</h4>
+      <h4 tabindex="0">{{name}}</h4>
       <div class="product-box">
         <figure class="product-photo">
-          <img src="{{imageURL}}" alt="{{name}}">
+          <img tabindex="0" src="{{imageURL}}" alt="{{name}}">
         </figure>
-        <p>{{description}}</p>
+        <p tabindex="0">{{description}}</p>
       </div>
       <div class="mrp-buy-wrapper">
         <span>MRP Rs. {{price}}</span>
