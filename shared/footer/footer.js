@@ -1,1 +1,1 @@
-export const footerTemplate = require('./footer.hbs');
+export const FooterComponent = require('./footer.hbs');

@@ -19,7 +19,7 @@ module.exports = {
     new CopyWebpackPlugin([
       { from: './assets/images/', to: 'images' },
       { from: './assets/js/', to: 'js' },
-      { from: './config/', to: 'constants' }
+      { from: './config/', to: 'config' }
     ])
   ],
   module: {

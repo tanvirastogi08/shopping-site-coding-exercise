@@ -1,1 +1,1 @@
-export const signup = require('./signup.hbs');
+export const SignupComponent = require('./signup.hbs');

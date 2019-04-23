@@ -1,7 +1,7 @@
 <div class="products-container">
   <nav class="sidebar">
     <ul class="navbar">
-      {{#each categories.categories}}
+      {{#each categories}}
         <li class="nav-item">
           <a class="nav-item-link item-{{@index}}" href="#">
             <span>{{name}}</span>
@@ -12,7 +12,7 @@
   </nav>
   <nav class="topbar">
     <select class="navbar selected">
-      {{#each categories.categories}}
+      {{#each categories}}
         <option class="nav-item">
           <span class="nav-item-link">{{name}}</span>
         </option>
@@ -20,7 +20,7 @@
     </select>
   </nav>
   <ul class="products-showcase">
-    {{#each products.allProducts}}
+    {{#each products}}
     <li>
       <h4 tabindex="0">{{name}}</h4>
       <div class="product-box">

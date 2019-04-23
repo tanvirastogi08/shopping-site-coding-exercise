@@ -19,6 +19,10 @@ input:focus {
     flex-basis: 50%;
   }
 
+  .signup-msg {
+    font-size: 80%;
+  }
+
   .signup-form {
     flex-basis: 50%;
   }
@@ -107,6 +111,7 @@ input:focus {
 
 .btn-signup {
   background-color: $color-theme;
+  border: none;
   display: inline-block;
   padding: 0.62rem;
   font-weight: 200;
@@ -117,15 +122,3 @@ input:focus {
   width:100%;
 }
 
-// @media only screen and (max-width: 1024px) {
-//   .signup-container {
-//     margin: 4rem 2rem;
-//   }
-// }
-
-// @media only screen and (max-width: 480px) {
-//   .signup-container {
-//     flex-direction: column;
-//     margin: 4rem 2rem;
-//   }
-// }

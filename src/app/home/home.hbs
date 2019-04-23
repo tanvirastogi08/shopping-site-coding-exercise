@@ -1,33 +1,33 @@
-  <section class="home-container">
-    <div class="slideshow-container">
-      {{#each banners.banners}}
-      <div class="bannerSlides fade">
-        <img src="{{bannerImageUrl}}" style="width:100%" alt="{{bannerImageAlt}}">
-      </div>
+<section class="home-container">
+  <div class="slideshow-container">
+    {{#each banners}}
+    <div class="bannerSlides fade">
+      <img src="{{bannerImageUrl}}" alt="{{bannerImageAlt}}">
+    </div>
+    {{/each}}
+    <button type="button" class="prev">&#10094;</button>
+    <button type="button" class="next">&#10095;</button>
+    <br>
+    <div class="dots-container">
+      {{#each banners}}
+      <button type="button" class="btn dot dot-{{@index}}"></button>
       {{/each}}
-      <a class="prev">&#10094;</a>
-      <a class="next">&#10095;</a>
-      <br>
-      <div style="text-align:center;">
-        {{#each banners.banners}}
-        <span class="dot dot-{{@index}}"></span>
-        {{/each}}
-      </div>
     </div>
-    <div class="products-section">
-      <ul class="products-listing">
-        {{#each categories.categories}}
-        <li class="category-list">
-          <div class="product-category">
-            <img src="{{imageUrl}}" alt="{{key}}">
-          </div>
-          <div class="product-detail">
-            <h5>{{name}}</h5>
-            <p>{{description}}</p>
-            <a class="btn-explore-category" href="#">Explore-{{key}}</a>
-          </div>
-        </li>
-        {{/each}}
-      </ul>
-    </div>
-  </section>
+  </div>
+  <div class="category-section">
+    <ul class="category-listing">
+      {{#each categories}}
+      <li class="category-list">
+        <div class="product-category">
+          <img src="{{imageUrl}}" alt="{{key}}">
+        </div>
+        <div class="category-detail">
+          <h5>{{name}}</h5>
+          <p>{{description}}</p>
+          <a class="btn-explore-category" href="#">Explore-{{key}}</a>
+        </div>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+</section>

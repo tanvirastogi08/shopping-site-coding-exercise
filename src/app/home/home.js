@@ -1,1 +1,1 @@
-export const home = require('./home.hbs');
+export const HomeComponent = require('./home.hbs');

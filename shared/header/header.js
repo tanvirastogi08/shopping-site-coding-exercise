@@ -1,4 +1,4 @@
-export const headerTemplate = require('./header.hbs');
+export const HeaderComponent = require('./header.hbs');
 
 export function onDrawerIconClick() {
   let drawerIcon = document.getElementById('drawer');

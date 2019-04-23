@@ -1,31 +1,33 @@
 /**============= Require all the scss and js files =================== */
 import '../../style.scss';
 import { makeRequest } from '../app/core/services/sabkabazar.service';
-import { headerTemplate, onDrawerIconClick, onDrawerCloseIconClick } from '../../shared/header/header';
-import { footerTemplate } from '../../shared/footer/footer';
-import { home } from '../app/home/home';
-import { products, onClickCategory } from '../app/products/products';
-import { login } from '../app/login/login';
-import { signup } from '../app/signup/signup';
+import {
+  HeaderComponent,
+  onDrawerIconClick,
+  onDrawerCloseIconClick
+} from '../../shared/header/header';
+import { FooterComponent } from '../../shared/footer/footer';
+import { HomeComponent } from '../app/home/home';
+import { ProductComponent, onClickCategory } from '../app/products/products';
+import { LoginComponent } from '../app/login/login';
+import { SignupComponent } from '../app/signup/signup';
 
 const WINDOW_CONFIG = window['SABKABAZAR_CONFIG'];
 
-let slideIndex, slides, dots, banners, categories, productList;
+let slideIndex, slides, dots, banners, categories, products;
 
 /**============= Handling page change on navigation click keeping header/footer fixed =================== */
 const routes = {
-  'signup': signup,
-  'signin': login,
-  'home': home,
-  'products': products
+  'signup': SignupComponent,
+  'signin': LoginComponent,
+  'home': HomeComponent,
+  'products': ProductComponent
 }
 
 $(document).ready(function() {
 
-  let handlebarsData;
-
-  header.innerHTML = headerTemplate();
-  footer.innerHTML = footerTemplate();
+  header.innerHTML = HeaderComponent();
+  footer.innerHTML = FooterComponent();
 
   // fetch banners
   const promiseBanner = makeRequest(
@@ -42,19 +44,18 @@ $(document).ready(function() {
   Promise.all([promiseBanner, promiseCategory])
     .then(function(result) {
 
-      banners = result[0];
-      categories = result[1];
-      
+      banners = result[0].banners;
+      categories = result[1].categories;
+
       slides = document.getElementsByClassName('bannerSlides');
       dots = document.getElementsByClassName('dot');
     
       // creating data for handlebars
-      handlebarsData = {
-        banners, categories
-      }
-
       // appending content section with home view(by default)
-      onNavItemClick('home', handlebarsData);
+      onNavItemClick('home', {
+        'banners': banners,
+        'categories': categories
+      });
     })
     .catch(function (error) {
       console.error('Something went wrong in banners', error);
@@ -63,29 +64,31 @@ $(document).ready(function() {
   /**================== Navigation buttons ============================ */
 
   $('.nav-home').on('click', function() {
-    handlebarsData = {
-      banners, categories
-    }
-    onNavItemClick('home', handlebarsData);
+  
+    onNavItemClick('home', {
+      'banners': banners,
+      'categories': categories
+    });
     onInitSlider();
     onDrawerCloseIconClick();
+  
   });
 
   $('.nav-product').on('click', function() {
+  
     // fetching products
     makeRequest(
       `${WINDOW_CONFIG.apiUrl}/mock-data/products/products.json`,
       'GET'
     )
-    .then(function(products) {
+    .then(function(result) {
 
-      productList = products;
+      products = result.products;
 
-      handlebarsData = {
-        products, categories
-      }
-
-      onClickProductOrCategory('products', handlebarsData);
+      onClickProductOrCategory('products', {
+        'products': products,
+        'categories': categories
+      });
     })
     .catch(function(error) {
       console.error('Something went wrong in products', error);
@@ -144,6 +147,7 @@ function onNavItemClick(section, data) {
 
 // appending the dynamic html to the main element
 function createHTML(section, data) {
+  // content is the id of main section of the page
   content.innerHTML =  routes[section](data);
 }
 
@@ -172,8 +176,7 @@ function onInitSlider() {
     plusSlide(1);
   });
 
-  const bannerList = banners.banners;
-  bannerList.forEach(function(banner, index) {
+  banners.forEach(function(banner, index) {
     $(`.dot-${index}`).on('click', function() {
       currentSlide(index);
     });
@@ -188,9 +191,7 @@ function plusSlide(n) {
   showSlides(slideIndex += n);
 }
 
-function onInitCategories(categories) {
-
-  const allCategories = categories.categories;
+function onInitCategories() {
 
   // on mobile screen select is visible
   $('select').on('change', function() {
@@ -198,7 +199,7 @@ function onInitCategories(categories) {
   });
 
   // on tablet and desktop screen
-  allCategories.forEach((category, index) =>  {
+  categories.forEach((category, index) =>  {
     $(`.item-${index}`).on('click', function(el) {
       onCategorySelection(el.target.innerText);
     });
@@ -206,20 +207,17 @@ function onInitCategories(categories) {
 }
 
 function onCategorySelection(selectedCategory) {
-  const allCategories = categories.categories;
-  const selectedCategoryDetail = allCategories.filter(item => item.name === selectedCategory);
-
-  let products = onClickCategory(selectedCategoryDetail[0].id, productList.allProducts);
-  products.allProducts = products;
-
-  const handlebarsData = {
-    products, categories
-  }
-  onClickProductOrCategory('products', handlebarsData)
+  const selectedCategoryDetail = categories.filter(item => item.name === selectedCategory);
+  let filteredProducts = onClickCategory(selectedCategoryDetail[0].id, products);
+  
+  onClickProductOrCategory('products', {
+    'products': filteredProducts,
+    'categories': categories
+  });
 }
 
 function onClickProductOrCategory(selector, handlebarsData) {
   onNavItemClick(selector, handlebarsData);
-  onInitCategories(handlebarsData.categories);
+  onInitCategories();
   onDrawerCloseIconClick();
 }
