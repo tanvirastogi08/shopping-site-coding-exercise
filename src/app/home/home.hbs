@@ -5,12 +5,12 @@
       <img src="{{bannerImageUrl}}" alt="{{bannerImageAlt}}">
     </div>
     {{/each}}
-    <button type="button" class="prev">&#10094;</button>
-    <button type="button" class="next">&#10095;</button>
+    <button type="button" class="prev">PREV</button>
+    <button type="button" class="next">NEXT</button>
     <br>
     <div class="dots-container">
       {{#each banners}}
-      <button type="button" class="btn dot dot-{{@index}}"></button>
+      <button tabindex="-1" type="button" class="btn dot dot-{{@index}}"></button>
       {{/each}}
     </div>
   </div>
@@ -19,12 +19,12 @@
       {{#each categories}}
       <li class="category-list">
         <div class="product-category">
-          <img src="{{imageUrl}}" alt="{{key}}">
+          <img tabindex="0" src="{{imageUrl}}" alt="{{key}}">
         </div>
         <div class="category-detail">
-          <h5>{{name}}</h5>
-          <p>{{description}}</p>
-          <a class="btn-explore-category" href="#">Explore-{{key}}</a>
+          <h5 tabindex="0">{{name}}</h5>
+          <p tabindex="0">{{description}}</p>
+          <a role="button" class="btn-explore-category" href="#">Explore-{{key}}</a>
         </div>
       </li>
       {{/each}}
