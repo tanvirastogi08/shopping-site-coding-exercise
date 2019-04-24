@@ -169,11 +169,11 @@ function showSlides(n) {
 function onInitSlider() {
   // prev and next slider button
   $('.prev').on('click', function() {
-    plusSlide(-1);
+    changeSlide(-1);
   });
 
   $('.next').on('click', function() {
-    plusSlide(1);
+    changeSlide(1);
   });
 
   banners.forEach(function(banner, index) {
@@ -187,7 +187,7 @@ function currentSlide(n) {
   showSlides(slideIndex = n);
 }
 
-function plusSlide(n) {
+function changeSlide(n) {
   showSlides(slideIndex += n);
 }
 
