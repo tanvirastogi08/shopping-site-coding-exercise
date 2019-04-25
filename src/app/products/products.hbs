@@ -3,8 +3,8 @@
     <ul class="navbar">
       {{#each categories}}
         <li class="nav-item">
-          <a class="nav-item-link item-{{@index}}" href="#">
-            <span>{{name}}</span>
+          <a class="nav-item-link item-{{@index}}" href="#" data-id="{{id}}">
+            <span class="nav-item-text">{{name}}</span>
           </a>
         </li>
       {{/each}}
@@ -13,9 +13,7 @@
   <nav class="topbar">
     <select class="navbar selected">
       {{#each categories}}
-        <option class="nav-item">
-          <span class="nav-item-link">{{name}}</span>
-        </option>
+        <option class="nav-item" data-id="{{id}}">{{name}}</option>
       {{/each}}
     </select>
   </nav>

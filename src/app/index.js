@@ -195,20 +195,19 @@ function onInitCategories() {
 
   // on mobile screen select is visible
   $('select').on('change', function() {
-    onCategorySelection(this.value);
+    onCategorySelection(this.options[this.selectedIndex].dataset.id);
   });
 
   // on tablet and desktop screen
   categories.forEach((category, index) =>  {
     $(`.item-${index}`).on('click', function(el) {
-      onCategorySelection(el.target.innerText);
+      onCategorySelection(el.target.dataset.id);
     });
   });
 }
 
-function onCategorySelection(selectedCategory) {
-  const selectedCategoryDetail = categories.filter(item => item.name === selectedCategory);
-  let filteredProducts = onClickCategory(selectedCategoryDetail[0].id, products);
+function onCategorySelection(categoryId) {
+  let filteredProducts = onClickCategory(categoryId, products);
   
   onClickProductOrCategory('products', {
     'products': filteredProducts,

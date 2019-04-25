@@ -18,6 +18,9 @@
       text-decoration: none;
       color: $color-grey-dark;
       display: block;
+      .nav-item-text{
+        pointer-events: none;
+      }
     }
     .nav-item-link:hover,
     .nav-item-link:active {
