@@ -67,3 +67,8 @@
 
 .btn-hamburger,
 .drawer-nav { display: none; }
+
+.nav-open {
+  display: flex;
+  flex-direction: column;
+}

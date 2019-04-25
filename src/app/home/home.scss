@@ -48,12 +48,14 @@
 }
 
 /* The dots/bullets/indicators */
-.dots-container {
+.carousal {
   position: absolute;
   top: 95%;
   left: 50%;
   transform: translate(-50%,-75%);
+  list-style: none;
 
+  li { display: inline-block; }
   .dot {
     cursor: pointer;
     height: 15px;

@@ -8,11 +8,13 @@
     <button type="button" class="prev">PREV</button>
     <button type="button" class="next">NEXT</button>
     <br>
-    <div class="dots-container">
+    <ul class="carousal">
       {{#each banners}}
-      <button tabindex="-1" type="button" class="btn dot dot-{{@index}}"></button>
+      <li>
+        <button aria-label="viewSlide {{@index}}" type="button" class="btn dot dot-{{@index}}"></button>
+      </li>
       {{/each}}
-    </div>
+    </ul>
   </div>
   <div class="category-section">
     <ul class="category-listing">

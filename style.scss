@@ -1,4 +1,4 @@
-@import './shared/variables.scss';
+@import './shared/_variables.scss';
 @import './shared/header/header.scss';
 @import './src/app/home/home.scss';
 @import './src/app/products/products.scss';
@@ -93,9 +93,11 @@ footer {
   header {
     .navigation {
       height: 4rem;
+
       .navbar,
       .action-buttons,
       .items-text { display: none; }
+
       .cart {
         margin-top: 0;
         align-self: stretch;

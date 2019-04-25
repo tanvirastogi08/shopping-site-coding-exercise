@@ -2,8 +2,7 @@ export const HeaderComponent = require('./header.hbs');
 
 export function onDrawerIconClick() {
   let drawerIcon = document.getElementById('drawer');
-  drawerIcon.style.display = "flex";
-  drawerIcon.style.flexDirection = "column";
+  drawerIcon.classList.toggle('nav-open');
 }
   
 export function onDrawerCloseIconClick() {
