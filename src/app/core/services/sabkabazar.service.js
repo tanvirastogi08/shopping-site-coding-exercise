@@ -1,36 +1,19 @@
-export function makeRequest(url, method) {
-
-	// Create the XHR request
-	var request = new XMLHttpRequest();
-
-	// Return it as a Promise
-	return new Promise(function (resolve, reject) {
-
-		// Setup our listener to process compeleted requests
-		request.onreadystatechange = function () {
-
-			// Only run if the request is complete
-			if (request.readyState !== 4) return;
-
-			// Process the response
-			if (request.status >= 200 && request.status < 300) {
-				// If successful
-				resolve(JSON.parse(request.responseText));
-			} else {
-				// If failed
-				reject({
-					status: request.status,
-					statusText: request.statusText
-				});
+export const makeRequest = {
+	getRequest: async (url) => {
+		const options = {
+			method: 'GET',
+			headers: {
+				'Content-Type': 'application/json'
 			}
-
 		};
-
-		// Setup our HTTP request
-		request.open(method || 'GET', url, true);
-
-		// Send the request
-		request.send();
-
-	});
-};
+		
+		try {
+			const response = await fetch(url, options)
+			const data = await response.json();
+			console.log(data);
+			return data;
+		} catch (err) {
+			console.error('Error getting data', err)
+		}
+	}
+}

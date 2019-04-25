@@ -31,14 +31,14 @@ input:focus {
 /*------------------------------------------------------------------
 [ Form ]*/
 
-.wrap-input100 {
+.input-wrapper {
   width: 100%;
   position: relative;
   border-bottom: 2px solid #adadad;
   margin-bottom: 37px;
 }
 
-.input100 {
+.input-field {
   font-size: 15px;
   color: #555555;
   line-height: 1.2;
@@ -51,7 +51,7 @@ input:focus {
 }
 
 /*---------------------------------------------*/ 
-.focus-input100 {
+.focus-input {
   position: absolute;
   display: block;
   width: 100%;
@@ -61,7 +61,7 @@ input:focus {
   pointer-events: none;
 }
 
-.focus-input100::before {
+.focus-input::before {
   content: "";
   display: block;
   position: absolute;
@@ -76,7 +76,7 @@ input:focus {
   background: linear-gradient(left, $color-login-theme);
 }
   
-.focus-input100::after {
+.focus-input::after {
   font-size: 15px;
   color: #999999;
   line-height: 1.2;
@@ -92,20 +92,20 @@ input:focus {
   transition: all 0.4s;
 }
 
-.input100:focus + .focus-input100::after {
+.input-field:focus + .focus-input::after {
   top: -15px;
   color: $color-login-theme;
 }
 
-.input100:focus + .focus-input100::before {
+.input-field:focus + .focus-input::before {
   width: 100%;
 }
 
-.has-val.input100 + .focus-input100::after {
+.has-val.input-field + .focus-input::after {
   top: -15px;
 }
 
-.has-val.input100 + .focus-input100::before {
+.has-val.input-field + .focus-input::before {
   width: 100%;
 }
 
