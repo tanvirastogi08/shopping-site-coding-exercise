@@ -44,7 +44,7 @@ footer {
     .navigation {
       margin: 0;
       .navbar { flex: 0 0 40%;}
-      .action-buttons { right: 10px; }
+      .nav-action { right: 10px; }
 
     }
   }
@@ -95,7 +95,7 @@ footer {
       height: 4rem;
 
       .navbar,
-      .action-buttons,
+      .nav-action,
       .items-text { display: none; }
 
       .cart {
