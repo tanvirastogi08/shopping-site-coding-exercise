@@ -14,7 +14,7 @@ const routes = {
   '/login': Login,
   '/': Home,
   '/products': Product,
-  '/categories/:id': ProductById
+  '/category/:id': ProductById
 }
 
 const router = async () => {

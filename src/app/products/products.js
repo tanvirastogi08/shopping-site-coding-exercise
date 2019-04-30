@@ -4,13 +4,6 @@ const productView = require('./products.hbs');
 const WINDOW_CONFIG = window['SABKABAZAR_CONFIG'];
 
 let products, categories;
-
-let onInitCategories = () => {
-    // on mobile screen select is visible
-    $('select').on('change', function() {
-        onCategorySelection(this.options[this.selectedIndex].dataset.id);
-    });
-}
    
 let onClickCategory = (selectedCategory, allProducts) => {
     return allProducts.filter(product => product.category === selectedCategory);
@@ -25,12 +18,6 @@ let onCategorySelection = (categoryId, products) => {
         'products': filteredProducts,
     });
       
-}
-
-let onClickProductOrCategory = (selector, handlebarsData) => {
-//   onNavItemClick(selector, handlebarsData);
-//   onInitCategories();
-//   onDrawerCloseIconClick();
 }
 
 export let Product = {
@@ -68,11 +55,11 @@ export let ProductById = {
         });
     },
     after_render: async () => {
-            // on tablet and desktop screen
-        let category = document.getElementsByClassName('nav-item-link');
+        let category = document.getElementsByClassName('category-item');
         Array.prototype.forEach.call(category, function(el) {
             el.addEventListener('click', (el) => {
-                onCategorySelection(el.target.dataset.id, products);
+                let selectedCategory = document.getElementsByClassName('default-category');
+                selectedCategory[0].innerText = el.target.dataset.name;
             });
         });
     }
