@@ -1,5 +1,5 @@
 export const makeRequest = {
-	getRequest: async (url) => {
+	getRequest: async (url, id) => {
 		const options = {
 			method: 'GET',
 			headers: {
@@ -9,8 +9,11 @@ export const makeRequest = {
 		
 		try {
 			const response = await fetch(url, options)
-			const data = await response.json();
-			console.log(data);
+			let data = await response.json();
+			// productByCategoryId
+			if (id) {
+				data.products = data.products.filter(d => d.category === id)
+			}
 			return data;
 		} catch (err) {
 			console.error('Error getting data', err)

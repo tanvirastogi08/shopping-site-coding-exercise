@@ -4,7 +4,7 @@ import { Config } from '../app/core/services/config.service';
 import { Header } from '../../shared/header/header';
 import { Footer } from '../../shared/footer/footer';
 import { Home } from '../app/home/home';
-import { Product } from '../app/products/products';
+import { Product, ProductById } from '../app/products/products';
 import { Login } from '../app/login/login';
 import { Signup } from '../app/signup/signup';
 
@@ -14,7 +14,7 @@ const routes = {
   '/login': Login,
   '/': Home,
   '/products': Product,
-  '/categories/:id': Product
+  '/categories/:id': ProductById
 }
 
 const router = async () => {
@@ -37,7 +37,7 @@ const router = async () => {
   let parsedURL = (request.route ? '/' + request.route : '/') + (request.id ? '/:id' : '');
   let page = routes[parsedURL];
 
-  content.innerHTML = await page.render();
+  content.innerHTML = request.id ? await page.render(request.id) : await page.render();
   await page.after_render();
 }
 
