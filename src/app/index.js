@@ -7,6 +7,8 @@ import { Home } from '../app/home/home';
 import { Product, ProductById } from '../app/products/products';
 import { Login } from '../app/login/login';
 import { Signup } from '../app/signup/signup';
+import { Error404 } from '../../shared/Error404';
+
 
 /**============= Handling page change on navigation click keeping header/footer fixed =================== */
 const routes = {
@@ -35,7 +37,7 @@ const router = async () => {
 
   // Parse the URL and if it has an id part, change it with the string ":id"
   let parsedURL = (request.route ? '/' + request.route : '/') + (request.id ? '/:id' : '');
-  let page = routes[parsedURL];
+  let page = routes[parsedURL] ? routes[parsedURL] : Error404;
 
   content.innerHTML = request.id ? await page.render(request.id) : await page.render();
   await page.after_render();
