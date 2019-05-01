@@ -1,7 +1,7 @@
 /**============= Require all the scss and js files =================== */
 import '../../style.scss';
 import { Config } from '../app/core/services/config.service';
-import { Header } from '../../shared/header/header';
+import { Header, cartInit } from '../../shared/header/header';
 import { Footer } from '../../shared/footer/footer';
 import { Home } from '../app/home/home';
 import { Product, ProductById } from '../app/products/products';
@@ -39,6 +39,8 @@ const router = async () => {
 
   content.innerHTML = request.id ? await page.render(request.id) : await page.render();
   await page.after_render();
+
+  cartInit();
 }
 
 // Listen on hash change:

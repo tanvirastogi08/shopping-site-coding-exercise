@@ -1,29 +1,45 @@
 <nav class="navigation">
-  <div class="nav-action">
-    <a href="/#/login" class="nav-signin">SignIn</a>
-    <a href="/#/signup" class="nav-register">Register</a>
-  </div>
-  <a href="/#/">
-    <img src="images/logo.png" alt="Sabka Bazar logo" class="logo">
-  </a>
-  <div class="navbar">
-    <a href="/#/" class="nav-home">Home</a>
-    <a href="/#/products" class="nav-product">Products</a>
-  </div>
-  <div class="cart">
-    <a href="#" class="cart-link">
-      <img class="cart-icon" src="images/cart.svg">
-      <span class="items-in-cart">0</span>
-      <span class="items-text">&nbsp;items</span>
+    <div class="nav-action">
+        <a href="/#/login" class="nav-signin">SignIn</a>
+        <a href="/#/signup" class="nav-register">Register</a>
+    </div>
+    <a href="/#/">
+        <img src="images/logo.png" alt="Sabka Bazar logo" class="logo">
     </a>
-    <button type="button" class="btn btn-hamburger">&#9776;</button>
-  </div>
+    <div class="navbar">
+        <a href="/#/" class="nav-home">Home</a>
+        <a href="/#/products" class="nav-product">Products</a>
+    </div>
+    <div class="cart">
+        <a href="#" class="cart-link">
+        <img class="cart-icon" src="images/cart.svg">
+        <span class="items-in-cart">0</span>
+        <span class="items-text">&nbsp;items</span>
+        </a>
+        <button type="button" class="btn btn-hamburger">&#9776;</button>
+    </div>
 </nav>
 <nav>
-  <div class="drawer-nav" id="drawer">
-    <a href="/#/" class="nav-home">Home</a>
-    <a href="/#/products" class="nav-product">Products</a>
-    <a href="/#/login" class="nav-signin">SignIn</a>
-    <a href="/#/signup" class="nav-register">SignUp</a>
-  </div>
+    <div class="drawer-nav" id="drawer">
+        <a href="/#/" class="nav-home">Home</a>
+        <a href="/#/products" class="nav-product">Products</a>
+        <a href="/#/login" class="nav-signin">SignIn</a>
+        <a href="/#/signup" class="nav-register">SignUp</a>
+    </div>
 </nav>
+<div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <button class="close">&times;</button>
+        <div class="cart-header"><p>My Cart ( 0 ) Item </p></div>
+        <div class="items-container">
+
+        </div>
+        <div class="checkout-container">
+            <div class="promo-banner">
+                <p>Promo code can be applied on checkout page</p>
+            </div>
+            <button class="checkout-button"><span class="proceed">Proceed to checkout</span><span class="total"></span></button>
+        </div>
+    </div>
+</div>
