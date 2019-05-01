@@ -10,7 +10,7 @@ export const Header = {
     document.onclick = function(event){
       let modal = document.getElementById("myModal");
         // on-click cart icon
-        if (
+        if (event.target.closest("a") &&
           event.target.closest("a").classList.value == "cart-link"
         ) {
           modal.style.display = "block";
